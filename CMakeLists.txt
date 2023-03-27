@@ -4,13 +4,13 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_CXX_STANDARD 11)
 
-project(3D-Classroom-OpenGL)
+project(3D-Movie-Theatre-OpenGL)
 
-add_executable(Classroom classroom.cpp "src/chair.cpp" "src/chairarm.cpp" "src/cupboard.cpp" "src/fan.cpp" "src/shelf.cpp" "src/snowman.cpp" "src/table.cpp" "src/window.cpp" )
+add_executable(theatre theatre.cpp "src/chair.cpp" "src/chairarm.cpp" "src/fan.cpp" "src/table.cpp" "src/window.cpp" )
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 find_package(GLU REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS})
-target_link_libraries(Classroom ${OPENGL_LIBRARIES} glut GLU GL)
+target_link_libraries(theatre ${OPENGL_LIBRARIES} glut GLU GL)

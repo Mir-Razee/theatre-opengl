@@ -6,11 +6,7 @@
 #include <GL/freeglut_ext.h>
 #include "src/chair.h"
 #include "src/table.h"
-#include "src/cupboard.h"
-#include "src/window.h"
-#include "src/snowman.h"
 #include "src/fan.h"
-#include "src/shelf.h"
 #include "src/chairarm.h"
 
 #define WINDOW_WIDTH 1000
@@ -23,7 +19,7 @@ float angle = 0.0, yAngle = 0.0;
 // actual vector representing the camera's direction
 float lx = 0.0f, ly = 0.0f, lz = -1.0f;
 // XZ position of the camera
-float x = -5.0f, z = 18.0f;
+float x = -5.0f, z = 18.0f, y = 2.5f;
 float roll = 0.0f;
 
 // for mouse movements
@@ -33,23 +29,6 @@ float mouseX = 0.0f, mouseY = 0.0f;
 
 // Fan
 Fan f;
-
-void interactWithSnowman()
-{
-
-	char str1[] = "Hello! You seem to be the only student in class today.";
-	int l1 = strlen(str1); // see how many characters are in text string.
-	glPushMatrix();
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-
-	glRasterPos3f(-9.6f, 2.7f, -2.8); // location to start printing text
-	for (int i = 0; i < l1; i++)	  // loop until i is greater then l
-	{
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str1[i]); // Print a character on the screen
-	}
-	glPopMatrix();
-}
 
 void renderScene(void)
 {
@@ -61,95 +40,95 @@ void renderScene(void)
 	// Reset transformations
 	glLoadIdentity();
 	// Set the camera
-	gluLookAt(x, 2.5f, z,
-			  x + lx, 2.5f + ly, z + lz,
+	gluLookAt(x, y, z,
+			  x + lx, y + ly, z + lz,
 			  roll + 0.0f, 2.5f, 0.0f);
 
 	// Draw floor
 	glColor3f(0.7f, 0.7f, 0.7f);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 0.0f, -10.0f);
-	glVertex3f(-10.0f, 0.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, -10.0f);
+	glVertex3f(-20.0f, 0.0f, -20.0f);
+	glVertex3f(-20.0f, 0.0f, 20.0f);
+	glVertex3f(20.0f, 0.0f, 20.0f);
+	glVertex3f(20.0f, 0.0f, -20.0f);
 	glEnd();
 
 	// wall
 	glColor3f(0.9294f, 0.9216f, 0.8353f);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 0.0f, -10.0f);
-	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 0.0f, -10.0f);
+	glVertex3f(-20.0f, 0.0f, -20.0f);
+	glVertex3f(-20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 0.0f, -20.0f);
 	glEnd();
 
 	// wall
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 0.0f, -10.0f);
-	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(-10.0f, 7.0f, 10.0f);
-	glVertex3f(-10.0f, 0.0f, 10.0f);
+	glVertex3f(-20.0f, 0.0f, -20.0f);
+	glVertex3f(-20.0f, 40.0f, -20.0f);
+	glVertex3f(-20.0f, 40.0f, 20.0f);
+	glVertex3f(-20.0f, 0.0f, 20.0f);
 	glEnd();
 
 	// wall with door
+	//  glColor3f(1.0f, 0.851f, 0.702f);
+	//  glBegin(GL_QUADS);
+	//  glVertex3f(-10.0f, 0.0f, 20.0f);
+	//  glVertex3f(-10.0f, 7.0f, 20.0f);
+	//  glVertex3f(-6.0f, 7.0f, 20.0f);
+	//  glVertex3f(-6.0f, 0.0f, 20.0f);
+	//  glEnd();
+
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 0.0f, 10.0f);
-	glVertex3f(-10.0f, 7.0f, 10.0f);
-	glVertex3f(-6.0f, 7.0f, 10.0f);
-	glVertex3f(-6.0f, 0.0f, 10.0f);
+	glVertex3f(-17.0f, 0.0f, 20.0f);
+	glVertex3f(-17.0f, 40.0f, 20.0f);
+	glVertex3f(20.0f, 40.0f, 20.0f);
+	glVertex3f(20.0f, 0.0f, 20.0f);
 	glEnd();
 
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-3.0f, 0.0f, 10.0f);
-	glVertex3f(-3.0f, 7.0f, 10.0f);
-	glVertex3f(10.0f, 7.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, 10.0f);
-	glEnd();
-
-	glColor3f(1.0f, 0.851f, 0.702f);
-	glBegin(GL_QUADS);
-	glVertex3f(-6.0f, 7.0f, 10.0f);
-	glVertex3f(-6.0f, 5.0f, 10.0f);
-	glVertex3f(-3.0f, 5.0f, 10.0f);
-	glVertex3f(-3.0f, 7.0f, 10.0f);
+	glVertex3f(-20.0f, 40.0f, 20.0f);
+	glVertex3f(-20.0f, 4.0f, 20.0f);
+	glVertex3f(-17.0f, 4.0f, 20.0f);
+	glVertex3f(-17.0f, 40.0f, 20.0f);
 	glEnd();
 
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glLineWidth(30.0f);
 	glBegin(GL_LINES);
-	glVertex3f(-6.0f, 5.0f, 10.01f);
-	glVertex3f(-3.0f, 5.0f, 10.01f);
+	glVertex3f(-20.0f, 4.0f, 20.01f);
+	glVertex3f(-17.0f, 4.0f, 20.01f);
 	glEnd();
 
 	glBegin(GL_LINES);
-	glVertex3f(-6.0f, 5.0f, 10.01f);
-	glVertex3f(-6.0f, 0.0f, 10.01f);
+	glVertex3f(-20.0f, 4.0f, 20.01f);
+	glVertex3f(-20.0f, 0.0f, 20.01f);
 	glEnd();
 
 	glBegin(GL_LINES);
-	glVertex3f(-3.0f, 0.0f, 10.01f);
-	glVertex3f(-3.0f, 5.0f, 10.01f);
+	glVertex3f(-17.0f, 0.0f, 20.01f);
+	glVertex3f(-17.0f, 4.0f, 20.01f);
 	glEnd();
 
 	// wall
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(10.0f, 0.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, 10.0f);
+	glVertex3f(20.0f, 0.0f, -20.0f);
+	glVertex3f(20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 40.0f, 20.0f);
+	glVertex3f(20.0f, 0.0f, 20.0f);
 	glEnd();
 
 	// ceiling
 	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, 10.0f);
-	glVertex3f(-10.0f, 7.0f, 10.0f);
+	glVertex3f(-20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 40.0f, 20.0f);
+	glVertex3f(-20.0f, 40.0f, 20.0f);
 	glEnd();
 
 	// Draw prof's chair
@@ -204,29 +183,42 @@ void renderScene(void)
 		}
 	}
 
-	// Draw cupboard
-	Cupboard cupboard;
-	glPushMatrix();
-	glTranslatef(8.49f, 0.0f, -3.5f);
-	glRotatef(-90.0, 0.0, 1.0, 0.0);
-	cupboard.drawCupboard();
-	glPopMatrix();
-
 	// Draw blackboard
-	glColor3f(0.4f, 0.2f, 0.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_QUADS);
-	glVertex3f(-6.0f, 2.0f, -9.99f);
-	glVertex3f(-6.0f, 5.5f, -9.99f);
-	glVertex3f(6.0f, 5.5f, -9.99f);
-	glVertex3f(6.0f, 2.0f, -9.99f);
+	glVertex3f(-17.0f, 10.0f, -19.99f);
+	glVertex3f(-17.0f, 25.5f, -19.99f);
+	glVertex3f(17.0f, 25.5f, -19.99f);
+	glVertex3f(17.0f, 10.0f, -19.99f);
 	glEnd();
 
-	glColor3f(0.149f, 0.149f, 0.149f);
-	glBegin(GL_QUADS);
-	glVertex3f(-5.8f, 2.2f, -9.98f);
-	glVertex3f(-5.8f, 5.3f, -9.98f);
-	glVertex3f(5.8f, 5.3f, -9.98f);
-	glVertex3f(5.8f, 2.2f, -9.98f);
+	// glColor3f(0.149f, 0.149f, 0.149f);
+	// glBegin(GL_QUADS);
+	// glVertex3f(-5.8f, 2.2f, -9.98f);
+	// glVertex3f(-5.8f, 5.3f, -9.98f);
+	// glVertex3f(5.8f, 5.3f, -9.98f);
+	// glVertex3f(5.8f, 2.2f, -9.98f);
+	// glEnd();
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glLineWidth(10.0f);
+	glBegin(GL_LINES);
+	glVertex3f(-17.0f, 10.0f, -19.99f);
+	glVertex3f(-17.0f, 25.6f, -19.99f);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex3f(-17.0f, 25.5f, -19.99f);
+	glVertex3f(17.0f, 25.5f, -19.99f);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex3f(17.0f, 25.6f, -19.99f);
+	glVertex3f(17.0f, 10.0f, -19.99f);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex3f(17.0f, 10.0f, -19.99f);
+	glVertex3f(-17.0f, 10.0f, -19.99f);
 	glEnd();
 
 	// Floor pattern
@@ -247,57 +239,11 @@ void renderScene(void)
 		glEnd();
 	}
 
-	// windows
-	Window w;
-	w.drawWindow1();
-	w.drawWindow2();
-	w.drawWindowSill();
-	glPushMatrix();
-	glTranslatef(0.0f, 0.0f, 8.0f);
-	w.drawWindowSill();
-	glPopMatrix();
-
-	// Draw Snowmen
-	Snowman s;
-	glPushMatrix();
-	glTranslatef(-9.7f, 2.0f, -3.0);
-	glScalef(0.3f, 0.3f, 0.3f);
-	s.drawSnowMan();
-	glPopMatrix();
-
-	if (x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0)
-	{
-		interactWithSnowman();
-	}
-
 	glPushMatrix();
 	glTranslatef(0.0f, 6.0f, 0.0);
 	glScalef(0.3f, 0.3f, 0.3f);
 	f.drawFan();
 	glPopMatrix();
-
-	Shelf sh;
-	glPushMatrix();
-	glTranslatef(8.99f, 3.5f, 4.0);
-	glScalef(0.25f, 0.25f, 0.25f);
-	glRotatef(-90, 0.0f, 1.0f, 0.0f);
-	sh.drawShelf();
-	glPopMatrix();
-
-	if (abs(mouseX) > 0.3)
-	{
-		angle -= (0.004f * mouseX);
-		lx = sin(angle);
-		lz = -cos(angle);
-	}
-	if (abs(mouseY) > 0.3)
-	{
-		if (abs(yAngle) < (M_PI / 2))
-		{
-			yAngle += (0.002f * mouseY);
-		}
-		ly = sin(yAngle);
-	}
 
 	glutSwapBuffers();
 }
@@ -340,7 +286,7 @@ void processSpecialKeys(int key, int xx, int yy)
 // @param yy : y coordinate of mouse position
 void processNormalKeys(unsigned char key, int xx, int yy)
 {
-	float fraction = 0.1f;
+	float fraction = 1.0f;
 	if (key == 'w')
 	{
 		x += lx * fraction;
@@ -368,6 +314,14 @@ void processNormalKeys(unsigned char key, int xx, int yy)
 	else if (key == 'z')
 	{
 		roll -= 0.5f;
+	}
+	else if (key == 'm')
+	{
+		y += ly * fraction;
+	}
+	else if (key == 'n')
+	{
+		y -= ly * fraction;
 	}
 
 	if (key == 27)
