@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(3D-Classroom-OpenGL)
 
-add_executable(Classroom classroom.cpp "src/chair.cpp" "src/cupboard.cpp" "src/fan.cpp" "src/shelf.cpp" "src/snowman.cpp" "src/table.cpp" "src/window.cpp" )
+add_executable(Classroom classroom.cpp "src/chair.cpp" "src/chairarm.cpp" "src/cupboard.cpp" "src/fan.cpp" "src/shelf.cpp" "src/snowman.cpp" "src/table.cpp" "src/window.cpp" )
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)

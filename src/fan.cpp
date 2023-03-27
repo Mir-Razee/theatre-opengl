@@ -5,8 +5,8 @@ void Fan::drawFan()
 {
     glTranslatef(0, 5, -5.0);
     glScalef(5, 5, 5);
-    //glRotatef(90, 1, 0, 0);
-    //Cube
+    // glRotatef(90, 1, 0, 0);
+    // Cube
     glPushMatrix();
     glColor3f(1, 1, 1);
     glScalef(1, 1.2, 1);
@@ -25,7 +25,8 @@ void Fan::drawFan()
     glScalef(0.15, .15, .15);
     glTranslatef(0.0f, -2.2f, 0.0f);
     glBegin(GL_QUAD_STRIP);
-    for (int j = 0; j <= 360; j += DEF_D) {
+    for (int j = 0; j <= 360; j += DEF_D)
+    {
         glColor3f(0.302, 0.149, 0.0);
         glVertex3f(cos(j), +1, sin(j));
         glColor3f(0.6, 0.302, 0.0);
@@ -59,7 +60,8 @@ void Fan::drawFan()
     glTranslatef(0, 0, -5);
     glScalef(1, 1, 2.4);
     glBegin(GL_QUAD_STRIP);
-    for (int j = 0; j <= 360; j += DEF_D) {
+    for (int j = 0; j <= 360; j += DEF_D)
+    {
         glColor3f(.3, .3, .3);
         glVertex3f(cos(j), +1, sin(j));
         glColor3f(.7, .7, .7);
@@ -87,7 +89,8 @@ void Fan::drawFan()
     glTranslatef(0, 0, -5);
     glScalef(1, 1, 2.4);
     glBegin(GL_QUAD_STRIP);
-    for (int j = 0; j <= 360; j += DEF_D) {
+    for (int j = 0; j <= 360; j += DEF_D)
+    {
         glColor3f(.3, .3, .3);
         glVertex3f(cos(j), +1, sin(j));
         glColor3f(.7, .7, .7);
@@ -116,7 +119,8 @@ void Fan::drawFan()
     glTranslatef(0, 0, -5);
     glScalef(1, 1, 2.4);
     glBegin(GL_QUAD_STRIP);
-    for (int j = 0; j <= 360; j += DEF_D) {
+    for (int j = 0; j <= 360; j += DEF_D)
+    {
         glColor3f(.3, .3, .3);
         glVertex3f(cos(j), +1, sin(j));
         glColor3f(.7, .7, .7);
@@ -144,7 +148,8 @@ void Fan::drawFan()
     glTranslatef(0, 0, -5);
     glScalef(1, 1, 2.4);
     glBegin(GL_QUAD_STRIP);
-    for (int j = 0; j <= 360; j += DEF_D) {
+    for (int j = 0; j <= 360; j += DEF_D)
+    {
         glColor3f(.3, .3, .3);
         glVertex3f(cos(j), +1, sin(j));
         glColor3f(.7, .7, .7);
@@ -160,5 +165,5 @@ void Fan::drawFan()
 
 void Fan::rotateFan()
 {
-    rotationAngle += 1.5f;
+    rotationAngle += 10.0f;
 }
