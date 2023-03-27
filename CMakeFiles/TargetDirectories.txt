@@ -1,3 +1,0 @@
-/home/miracle_razee/code_files/opengl/theatre-opengl/CMakeFiles/rebuild_cache.dir
-/home/miracle_razee/code_files/opengl/theatre-opengl/CMakeFiles/edit_cache.dir
-/home/miracle_razee/code_files/opengl/theatre-opengl/CMakeFiles/Classroom.dir
