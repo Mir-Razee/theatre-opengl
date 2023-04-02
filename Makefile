@@ -111,44 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Classroom
+# Target rules for targets named theatre
 
 # Build rule for target.
-Classroom: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Classroom
-.PHONY : Classroom
+theatre: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 theatre
+.PHONY : theatre
 
 # fast build rule for target.
-Classroom/fast:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/build
-.PHONY : Classroom/fast
-
-classroom.o: classroom.cpp.o
-
-.PHONY : classroom.o
-
-# target to build an object file
-classroom.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/classroom.cpp.o
-.PHONY : classroom.cpp.o
-
-classroom.i: classroom.cpp.i
-
-.PHONY : classroom.i
-
-# target to preprocess a source file
-classroom.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/classroom.cpp.i
-.PHONY : classroom.cpp.i
-
-classroom.s: classroom.cpp.s
-
-.PHONY : classroom.s
-
-# target to generate assembly for a file
-classroom.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/classroom.cpp.s
-.PHONY : classroom.cpp.s
+theatre/fast:
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/build
+.PHONY : theatre/fast
 
 src/chair.o: src/chair.cpp.o
 
@@ -156,7 +129,7 @@ src/chair.o: src/chair.cpp.o
 
 # target to build an object file
 src/chair.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/chair.cpp.o
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/chair.cpp.o
 .PHONY : src/chair.cpp.o
 
 src/chair.i: src/chair.cpp.i
@@ -165,7 +138,7 @@ src/chair.i: src/chair.cpp.i
 
 # target to preprocess a source file
 src/chair.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/chair.cpp.i
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/chair.cpp.i
 .PHONY : src/chair.cpp.i
 
 src/chair.s: src/chair.cpp.s
@@ -174,7 +147,7 @@ src/chair.s: src/chair.cpp.s
 
 # target to generate assembly for a file
 src/chair.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/chair.cpp.s
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/chair.cpp.s
 .PHONY : src/chair.cpp.s
 
 src/chairarm.o: src/chairarm.cpp.o
@@ -183,7 +156,7 @@ src/chairarm.o: src/chairarm.cpp.o
 
 # target to build an object file
 src/chairarm.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/chairarm.cpp.o
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/chairarm.cpp.o
 .PHONY : src/chairarm.cpp.o
 
 src/chairarm.i: src/chairarm.cpp.i
@@ -192,7 +165,7 @@ src/chairarm.i: src/chairarm.cpp.i
 
 # target to preprocess a source file
 src/chairarm.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/chairarm.cpp.i
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/chairarm.cpp.i
 .PHONY : src/chairarm.cpp.i
 
 src/chairarm.s: src/chairarm.cpp.s
@@ -201,35 +174,8 @@ src/chairarm.s: src/chairarm.cpp.s
 
 # target to generate assembly for a file
 src/chairarm.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/chairarm.cpp.s
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/chairarm.cpp.s
 .PHONY : src/chairarm.cpp.s
-
-src/cupboard.o: src/cupboard.cpp.o
-
-.PHONY : src/cupboard.o
-
-# target to build an object file
-src/cupboard.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/cupboard.cpp.o
-.PHONY : src/cupboard.cpp.o
-
-src/cupboard.i: src/cupboard.cpp.i
-
-.PHONY : src/cupboard.i
-
-# target to preprocess a source file
-src/cupboard.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/cupboard.cpp.i
-.PHONY : src/cupboard.cpp.i
-
-src/cupboard.s: src/cupboard.cpp.s
-
-.PHONY : src/cupboard.s
-
-# target to generate assembly for a file
-src/cupboard.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/cupboard.cpp.s
-.PHONY : src/cupboard.cpp.s
 
 src/fan.o: src/fan.cpp.o
 
@@ -237,7 +183,7 @@ src/fan.o: src/fan.cpp.o
 
 # target to build an object file
 src/fan.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/fan.cpp.o
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/fan.cpp.o
 .PHONY : src/fan.cpp.o
 
 src/fan.i: src/fan.cpp.i
@@ -246,7 +192,7 @@ src/fan.i: src/fan.cpp.i
 
 # target to preprocess a source file
 src/fan.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/fan.cpp.i
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/fan.cpp.i
 .PHONY : src/fan.cpp.i
 
 src/fan.s: src/fan.cpp.s
@@ -255,89 +201,8 @@ src/fan.s: src/fan.cpp.s
 
 # target to generate assembly for a file
 src/fan.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/fan.cpp.s
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/fan.cpp.s
 .PHONY : src/fan.cpp.s
-
-src/shelf.o: src/shelf.cpp.o
-
-.PHONY : src/shelf.o
-
-# target to build an object file
-src/shelf.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/shelf.cpp.o
-.PHONY : src/shelf.cpp.o
-
-src/shelf.i: src/shelf.cpp.i
-
-.PHONY : src/shelf.i
-
-# target to preprocess a source file
-src/shelf.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/shelf.cpp.i
-.PHONY : src/shelf.cpp.i
-
-src/shelf.s: src/shelf.cpp.s
-
-.PHONY : src/shelf.s
-
-# target to generate assembly for a file
-src/shelf.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/shelf.cpp.s
-.PHONY : src/shelf.cpp.s
-
-src/snowman.o: src/snowman.cpp.o
-
-.PHONY : src/snowman.o
-
-# target to build an object file
-src/snowman.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/snowman.cpp.o
-.PHONY : src/snowman.cpp.o
-
-src/snowman.i: src/snowman.cpp.i
-
-.PHONY : src/snowman.i
-
-# target to preprocess a source file
-src/snowman.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/snowman.cpp.i
-.PHONY : src/snowman.cpp.i
-
-src/snowman.s: src/snowman.cpp.s
-
-.PHONY : src/snowman.s
-
-# target to generate assembly for a file
-src/snowman.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/snowman.cpp.s
-.PHONY : src/snowman.cpp.s
-
-src/table.o: src/table.cpp.o
-
-.PHONY : src/table.o
-
-# target to build an object file
-src/table.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/table.cpp.o
-.PHONY : src/table.cpp.o
-
-src/table.i: src/table.cpp.i
-
-.PHONY : src/table.i
-
-# target to preprocess a source file
-src/table.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/table.cpp.i
-.PHONY : src/table.cpp.i
-
-src/table.s: src/table.cpp.s
-
-.PHONY : src/table.s
-
-# target to generate assembly for a file
-src/table.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/table.cpp.s
-.PHONY : src/table.cpp.s
 
 src/window.o: src/window.cpp.o
 
@@ -345,7 +210,7 @@ src/window.o: src/window.cpp.o
 
 # target to build an object file
 src/window.cpp.o:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/window.cpp.o
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/window.cpp.o
 .PHONY : src/window.cpp.o
 
 src/window.i: src/window.cpp.i
@@ -354,7 +219,7 @@ src/window.i: src/window.cpp.i
 
 # target to preprocess a source file
 src/window.cpp.i:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/window.cpp.i
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/window.cpp.i
 .PHONY : src/window.cpp.i
 
 src/window.s: src/window.cpp.s
@@ -363,8 +228,35 @@ src/window.s: src/window.cpp.s
 
 # target to generate assembly for a file
 src/window.cpp.s:
-	$(MAKE) -f CMakeFiles/Classroom.dir/build.make CMakeFiles/Classroom.dir/src/window.cpp.s
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/src/window.cpp.s
 .PHONY : src/window.cpp.s
+
+theatre.o: theatre.cpp.o
+
+.PHONY : theatre.o
+
+# target to build an object file
+theatre.cpp.o:
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/theatre.cpp.o
+.PHONY : theatre.cpp.o
+
+theatre.i: theatre.cpp.i
+
+.PHONY : theatre.i
+
+# target to preprocess a source file
+theatre.cpp.i:
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/theatre.cpp.i
+.PHONY : theatre.cpp.i
+
+theatre.s: theatre.cpp.s
+
+.PHONY : theatre.s
+
+# target to generate assembly for a file
+theatre.cpp.s:
+	$(MAKE) -f CMakeFiles/theatre.dir/build.make CMakeFiles/theatre.dir/theatre.cpp.s
+.PHONY : theatre.cpp.s
 
 # Help Target
 help:
@@ -374,34 +266,22 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Classroom"
-	@echo "... classroom.o"
-	@echo "... classroom.i"
-	@echo "... classroom.s"
+	@echo "... theatre"
 	@echo "... src/chair.o"
 	@echo "... src/chair.i"
 	@echo "... src/chair.s"
 	@echo "... src/chairarm.o"
 	@echo "... src/chairarm.i"
 	@echo "... src/chairarm.s"
-	@echo "... src/cupboard.o"
-	@echo "... src/cupboard.i"
-	@echo "... src/cupboard.s"
 	@echo "... src/fan.o"
 	@echo "... src/fan.i"
 	@echo "... src/fan.s"
-	@echo "... src/shelf.o"
-	@echo "... src/shelf.i"
-	@echo "... src/shelf.s"
-	@echo "... src/snowman.o"
-	@echo "... src/snowman.i"
-	@echo "... src/snowman.s"
-	@echo "... src/table.o"
-	@echo "... src/table.i"
-	@echo "... src/table.s"
 	@echo "... src/window.o"
 	@echo "... src/window.i"
 	@echo "... src/window.s"
+	@echo "... theatre.o"
+	@echo "... theatre.i"
+	@echo "... theatre.s"
 .PHONY : help
 
 
