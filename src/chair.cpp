@@ -11,7 +11,7 @@ void Chair ::drawChair()
 	// glRotatef(10, 1.0f, 0.0f, 0.0f);
 	// glRotatef(-10, 0.0f, 0.0f, 1.0f);
 	// glRotatef(_angle, 0.0f, 1.0f, 0.0f);
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(0.0f, 1.0f, 0.0f);
 	glBegin(GL_QUADS);
 	// chair seat
 	// Front
