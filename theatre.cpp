@@ -165,6 +165,21 @@ void renderScene(void)
 	glVertex3f(17.0f, 10.0f, -19.99f);
 	glEnd();
 
+	glColor3f(0.0f, 1.0f, 0.0f); // Set the color to white
+
+	// Draw the rectangle
+	glBegin(GL_QUADS);
+	glVertex3f(-17.5f, 28.5f, -19.90f); // Top-left vertex
+	glVertex3f(-15.5f, 28.5f, -19.90f); // Top-right vertex
+	glVertex3f(-15.5f, 26.5f, -19.90f); // Bottom-right vertex
+	glVertex3f(-17.5f, 26.5f, -19.90f); // Bottom-left vertex
+	glEnd();
+
+	glColor3f(0.0f, 0.0f, 0.0f); // Set the color to black
+
+	// Draw the "EXIT" text
+	glRasterPos3f(-17.5f, 27.5f, -19.90f); // Set the position of the text
+	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"EXIT");
 	// glColor3f(0.149f, 0.149f, 0.149f);
 	// glBegin(GL_QUADS);
 	// glVertex3f(-5.8f, 2.2f, -9.98f);
