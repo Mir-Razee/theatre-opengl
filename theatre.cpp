@@ -19,7 +19,7 @@ float angle = 0.0, yAngle = 0.0;
 // actual vector representing the camera's direction
 float lx = 0.0f, ly = 0.0f, lz = -1.0f;
 // XZ position of the camera
-float x = -5.0f, z = 18.0f, y = 2.5f;
+float x = -15.0f, z = 50.0f, y = 5.0f;
 float roll = 0.0f;
 
 // for mouse movements
@@ -40,9 +40,7 @@ void renderScene(void)
 	// Reset transformations
 	glLoadIdentity();
 	// Set the camera
-	gluLookAt(x, y, z,
-			  x + lx, y + ly, z + lz,
-			  roll + 0.0f, 2.5f, 0.0f);
+	gluLookAt(x, y, z, x + lx, y + ly, z + lz, roll + 0.0f, 2.5f, 0.0f);
 
 	// Draw floor
 	glColor3f(0.7f, 0.7f, 0.7f);
@@ -71,7 +69,7 @@ void renderScene(void)
 	glVertex3f(-20.0f, 0.0f, 20.0f);
 	glEnd();
 
-	// wall with door
+	// wall with entrance
 	//  glColor3f(1.0f, 0.851f, 0.702f);
 	//  glBegin(GL_QUADS);
 	//  glVertex3f(-10.0f, 0.0f, 20.0f);
@@ -113,14 +111,54 @@ void renderScene(void)
 	glVertex3f(-17.0f, 4.0f, 20.01f);
 	glEnd();
 
-	// wall
+	// wall with exit
+	// glColor3f(1.0f, 0.851f, 0.702f);
+	// glBegin(GL_QUADS);
+	// glVertex3f(20.0f, 0.0f, -20.0f);
+	// glVertex3f(20.0f, 40.0f, -20.0f);
+	// glVertex3f(20.0f, 40.0f, 20.0f);
+	// glVertex3f(20.0f, 0.0f, 20.0f);
+	// glEnd();
+
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(20.0f, 0.0f, -20.0f);
-	glVertex3f(20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 0.0f, -15.0f);
+	glVertex3f(20.0f, 40.0f, -15.0f);
 	glVertex3f(20.0f, 40.0f, 20.0f);
 	glVertex3f(20.0f, 0.0f, 20.0f);
 	glEnd();
+
+	glBegin(GL_QUADS);
+	glVertex3f(20.0f, 4.0f, -15.0f);
+	glVertex3f(20.0f, 40.0f, -15.0f);
+	glVertex3f(20.0f, 40.0f, -18.0f);
+	glVertex3f(20.0f, 4.0f, -18.0f);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glVertex3f(20.0f, 0.0f, -18.0f);
+	glVertex3f(20.0f, 40.0f, -18.0f);
+	glVertex3f(20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 0.0f, -20.0f);
+	glEnd();
+	
+	glColor3f(0.4f, 0.2f, 0.0f);
+	glLineWidth(30.0f);
+	glBegin(GL_LINES);
+	glVertex3f(20.0f, 4.0f, -15.0f);
+	glVertex3f(20.0f, 4.0f, -18.0f);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex3f(20.0f, 4.0f, -18.0f);
+	glVertex3f(20.0f, 0.0f, -18.0f);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex3f(20.0f, 0.0f, -15.0f);
+	glVertex3f(20.0f, 4.0f, -15.0f);
+	glEnd();
+
 
 	// ceiling
 	glColor3f(0.95f, 0.95f, 0.95f);
