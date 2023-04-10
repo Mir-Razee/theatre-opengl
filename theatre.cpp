@@ -135,44 +135,30 @@ void renderScene(void)
 	Chair chair[4][4];
 	ChairArm chairArm[4][4];
 	Stair stair[4];
-	// for (int i = -13; i <= 13; i += 2)
-	// {
-	// 	for (int j = -4; j <= 4; j += 1)
-	// 	{
-	// 		glPushMatrix();
-	// 		glTranslatef(i * 0.6, j * 1.2 + 5.0f, j * 2.0 + 2.2f);
-	// 		// glScalef(0.25f, 0.25f, 0.25f);
-	// 		glRotatef(180.0, 0.0, 1.0, 0.0);
-	// 		// chair[i][j].drawChair();
-	// 		// glTranslatef(2.45f, 0.0f, 0.0f);
-	// 		// chairArm[i][j].drawChairArm();
-	// 		// if (i == -3 || i == 13)
-	// 		// {
-	// 		// 	glTranslatef(-4.9f, 0.0f, 0.0f);
-	// 		// 	chairArm[i][j].drawChairArm();
-	// 		// }
-	// 		// glTranslatef(-i * 0.6,  j*0.5-1.0f,  j * 2.0+2.2f);
-	// 		glScalef(1.0f, 1.0f, 1.0f);
-
-	// 		stair[j].drawStair();
-	// 		// glTranslatef(-2.5f, -0.0f, -0.0f);
-	// 		glPopMatrix();
-	// 	}
-	// 	if (i == -3)
-	// 		i = 1;
-	// }
-
-	for (int i = 0; i < 9; i++)
+	for (int i = -13; i <= 13; i += 2)
 	{
-		glPushMatrix();
-		glScalef(1.0f,1.0f,36.0 -(4.0*i));
-		glRotatef(180.0, 0.0, 1.0, 0.0);
-		glTranslatef(0.0f,i*1.0f, 1.0f);
-		stair[i].drawStair();
-		
-		glPopMatrix();
+		for (int j = -4; j <= 8; j += 1)
+		{
+			glPushMatrix();
+			glTranslatef(i * 0.6, j * 1.0 + 4.8f, j * 2.0 + 2.2f);
+			glScalef(0.25f, 0.25f, 0.25f);
+			glRotatef(180.0, 0.0, 1.0, 0.0);
+			chair[i][j].drawChair();
+			glTranslatef(2.45f, 0.0f, 0.0f);
+			chairArm[i][j].drawChairArm();
+			if (i == -3 || i == 13)
+			{
+				glTranslatef(-4.9f, 0.0f, 0.0f);
+				chairArm[i][j].drawChairArm();
+			}
+			glTranslatef(0.0f, -1.0f, 6.0f);
+			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
+			stair[j].drawStair();
+			glPopMatrix();
+		}
+		if (i == -3)
+			i = 1;
 	}
-	
 
 	// Draw Screen
 	glColor3f(1.0f, 1.0f, 1.0f);

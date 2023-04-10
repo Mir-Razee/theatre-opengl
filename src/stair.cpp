@@ -372,45 +372,45 @@ void Stair ::drawStair()
 	// // glVertex3f(1.2f, .2f, -0.6f);
 
 	// glVertex3f()
-    glColor3f(1.0f, 0.0f, 0.0f);
-    
+	glColor3f(1.0f, 0.0f, 0.0f);
+
 	glBegin(GL_QUADS);
 	// chair seat
 	// Front
 	//
 	glVertex3f(-17.0f, 0.0f, 0.0f);
-	glVertex3f(-17.0f, 1.0f, 0.0f);
-	glVertex3f(20.0f, 1.0f, 0.0f);
+	glVertex3f(-17.0f, -1.0f, 0.0f);
+	glVertex3f(20.0f, -1.0f, 0.0f);
 	glVertex3f(20.0f, 0.0f, 0.0f);
 
 	// Right
 	//
-	glVertex3f(20.0f, 1.0f, 0.0f);
+	glVertex3f(20.0f, -1.0f, 0.0f);
 	glVertex3f(20.0f, 0.0f, 0.0f);
 	glVertex3f(20.0f, 0.0f, -1.0f);
-	glVertex3f(20.0f, 1.0f, -1.0f);
+	glVertex3f(20.0f, -1.0f, -1.0f);
 
 	// Back
 	//;
 	glVertex3f(-17.0f, 0.0f, -1.0f);
-	glVertex3f(-17.0f, 1.0f, -1.0f);
-	glVertex3f(20.0f, 1.0f, -1.0f);
+	glVertex3f(-17.0f, -1.0f, -1.0f);
+	glVertex3f(20.0f, -1.0f, -1.0f);
 	glVertex3f(20.0f, 0.0f, -1.0f);
 
 	// Left
 	// ;
-	glVertex3f(-17.0f, 1.0f, 0.0f);
-	glVertex3f(-17.0f, 1.0f, -1.0f);
+	glVertex3f(-17.0f, -1.0f, 0.0f);
+	glVertex3f(-17.0f, -1.0f, -1.0f);
 	glVertex3f(-17.0f, 0.0f, -1.0f);
 	glVertex3f(-17.0f, 0.0f, 0.0f);
 
 	// top
 	//
 
-	glVertex3f(20.0f, 1.0f, -1.0f);
-	glVertex3f(-17.0f, 1.0f, -1.0f);
-	glVertex3f(-17.0f, 1.0f, 0.0f);
-	glVertex3f(20.0f, 1.0f, 0.0f);
+	glVertex3f(20.0f, -1.0f, -1.0f);
+	glVertex3f(-17.0f, -1.0f, -1.0f);
+	glVertex3f(-17.0f, -1.0f, 0.0f);
+	glVertex3f(20.0f, -1.0f, 0.0f);
 
 	// bottom
 	// ;
