@@ -375,7 +375,7 @@ void Stair ::drawStair()
 	glColor3f(1.0f, 0.0f, 0.0f);
 
 	glBegin(GL_QUADS);
-	// chair seat
+	// stair seat
 	// Front
 	//
 	glVertex3f(-17.0f, 0.0f, 0.0f);

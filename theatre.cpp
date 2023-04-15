@@ -221,7 +221,73 @@ void renderScene(void)
 	glVertex3f(-20.0f, 40.0f, +20.0f);
 	glEnd();
 
+	// stair wall support left
 
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(-14.0f, 00.0f, -08.0f);
+	glVertex3f(-14.0f, 02.0f, -08.0f);
+	glVertex3f(-14.0f, 15.0f, +17.0f);
+	glVertex3f(-14.0f, 15.0f, +20.0f);
+	glVertex3f(-14.0f, 00.0f, +20.0f);
+	glVertex3f(-14.0f, 00.0f, -08.0f);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(-13.4f, 00.0f, -08.0f);
+	glVertex3f(-13.4f, 02.0f, -08.0f);
+	glVertex3f(-13.4f, 15.0f, +17.0f);
+	glVertex3f(-13.4f, 15.0f, +20.0f);
+	glVertex3f(-13.4f, 00.0f, +20.0f);
+	glVertex3f(-13.4f, 00.0f, -08.0f);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(-13.4f, 02.0f, -08.0f);
+	glVertex3f(-13.4f, 00.0f, -08.0f);
+	glVertex3f(-14.0f, 00.0f, -08.0f);
+	glVertex3f(-14.0f, 02.0f, -08.0f);
+	glVertex3f(-14.0f, 15.0f, +17.0f);
+	glVertex3f(-14.0f, 15.0f, +20.0f);
+	glVertex3f(-13.4f, 15.0f, +20.0f);
+	glVertex3f(-13.4f, 15.0f, +17.0f);
+	glEnd();
+
+	// stair wall support right
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(+13.2f, 00.0f, -08.0f);
+	glVertex3f(+13.2f, 02.0f, -08.0f);
+	glVertex3f(+13.2f, 15.0f, +17.0f);
+	glVertex3f(+13.2f, 15.0f, +20.0f);
+	glVertex3f(+13.2f, 00.0f, +20.0f);
+	glVertex3f(+13.2f, 00.0f, -08.0f);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(+12.6f, 00.0f, -08.0f);
+	glVertex3f(+12.6f, 02.0f, -08.0f);
+	glVertex3f(+12.6f, 15.0f, +17.0f);
+	glVertex3f(+12.6f, 15.0f, +20.0f);
+	glVertex3f(+12.6f, 00.0f, +20.0f);
+	glVertex3f(+12.6f, 00.0f, -08.0f);
+	glEnd();
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_POLYGON);
+	glVertex3f(+12.6f, 02.0f, -08.0f);
+	glVertex3f(+12.6f, 00.0f, -08.0f);
+	glVertex3f(+13.2f, 00.0f, -08.0f);
+	glVertex3f(+13.2f, 02.0f, -08.0f);
+	glVertex3f(+13.2f, 15.0f, +17.0f);
+	glVertex3f(+13.2f, 15.0f, +20.0f);
+	glVertex3f(+12.6f, 15.0f, +20.0f);
+	glVertex3f(+12.6f, 15.0f, +17.0f);
+	glEnd();
 
 	// // DRAW projector room
 	// Draw floor

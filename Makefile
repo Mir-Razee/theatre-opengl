@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl"
+CMAKE_SOURCE_DIR = /home/lohi/Desktop/sem6/CS352/theatre-opengl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl"
+CMAKE_BINARY_DIR = /home/lohi/Desktop/sem6/CS352/theatre-opengl
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl/CMakeFiles" "/home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lohi/Desktop/sem6/CS352/theatre-opengl/CMakeFiles /home/lohi/Desktop/sem6/CS352/theatre-opengl//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lohi/Desktop/sem6/CS352/theatre-opengl/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

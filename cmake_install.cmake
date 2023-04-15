@@ -1,4 +1,4 @@
-# Install script for directory: /home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl
+# Install script for directory: /home/lohi/Desktop/sem6/CS352/theatre-opengl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cse/Desktop/200001066/CS352/CGV project/theatre-opengl/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lohi/Desktop/sem6/CS352/theatre-opengl/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
