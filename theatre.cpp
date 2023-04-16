@@ -29,7 +29,8 @@ float mouseX = 0.0f, mouseY = 0.0f;
 
 // // Fan
 // Fan f;
-
+void drawSign(double p, double q, double r, int s);
+void drawGrills(int rot);
 void renderScene(void)
 {
 
@@ -169,21 +170,6 @@ void renderScene(void)
 	glVertex3f(17.0f, 10.0f, -19.99f);
 	glEnd();
 
-	glColor3f(0.0f, 1.0f, 0.0f); // Set the color to white
-
-	// Draw the rectangle
-	glBegin(GL_QUADS);
-	glVertex3f(-17.5f, 28.5f, -19.90f); // Top-left vertex
-	glVertex3f(-15.5f, 28.5f, -19.90f); // Top-right vertex
-	glVertex3f(-15.5f, 26.5f, -19.90f); // Bottom-right vertex
-	glVertex3f(-17.5f, 26.5f, -19.90f); // Bottom-left vertex
-	glEnd();
-
-	glColor3f(0.0f, 0.0f, 0.0f); // Set the color to black
-
-	// Draw the "EXIT" text
-	glRasterPos3f(-17.5f, 27.5f, -19.90f); // Set the position of the text
-	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"EXIT");
 	// glColor3f(0.149f, 0.149f, 0.149f);
 	// glBegin(GL_QUADS);
 	// glVertex3f(-5.8f, 2.2f, -9.98f);
@@ -230,14 +216,11 @@ void renderScene(void)
 		glVertex3f(10.0f, 0.001f, -10.01f + i);
 		glEnd();
 	}
-
-	// Fan
-	// glPushMatrix();
-	// glTranslatef(0.0f, 6.0f, 0.0);
-	// glScalef(0.3f, 0.3f, 0.3f);
-	// f.drawFan();
-	// glPopMatrix();
-
+	drawSign(0, -6, 0.1, 0);
+	drawSign(0, -6, 0.1, 1);
+	drawGrills(0);
+	drawGrills(1);
+	drawGrills(2);
 	glutSwapBuffers();
 }
 
@@ -380,6 +363,121 @@ void animate()
 	glutPostRedisplay();
 }
 
+void grill()
+{
+	// Set the color to light gray
+	glColor3f(0.8f, 0.8f, 0.8f);
+
+	// Draw the square vent using GL_TRIANGLE_STRIP
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(-0.4f, 0.4f, 0.0f);	// Top-left vertex
+	glVertex3f(0.4f, 0.4f, 0.0f);	// Top-right vertex
+	glVertex3f(-0.4f, -0.4f, 0.0f); // Bottom-left vertex
+	glVertex3f(0.4f, -0.4f, 0.0f);	// Bottom-right vertex
+	glEnd();
+
+	// Set the color to black for the grills
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	// Draw the horizontal grill lines using GL_LINES
+	glLineWidth(4.0f); // Set the line width to 1
+	glBegin(GL_LINES);
+	glVertex3f(-0.4f, 0.3f, 0.0f);	// Top line 1 left point
+	glVertex3f(0.4f, 0.3f, 0.0f);	// Top line 1 right point
+	glVertex3f(-0.4f, 0.1f, 0.0f);	// Top line 2 left point
+	glVertex3f(0.4f, 0.1f, 0.0f);	// Top line 2 right point
+	glVertex3f(-0.4f, -0.1f, 0.0f); // Bottom line 1 left point
+	glVertex3f(0.4f, -0.1f, 0.0f);	// Bottom line 1 right point
+	glVertex3f(-0.4f, -0.3f, 0.0f); // Bottom line 2 left point
+	glVertex3f(0.4f, -0.3f, 0.0f);	// Bottom line 2 right point
+	glEnd();
+
+	// Draw the vertical grill lines using GL_LINES
+	glBegin(GL_LINES);
+	glVertex3f(-0.2f, 0.4f, 0.0f);	// Top line left point
+	glVertex3f(-0.2f, -0.4f, 0.0f); // Bottom line left point
+	glVertex3f(0.2f, 0.4f, 0.0f);	// Top line right point
+	glVertex3f(0.2f, -0.4f, 0.0f);	// Bottom line right point
+	glEnd();
+}
+
+void drawGrills(int rot)
+{
+	if (rot == 1)
+	{
+		glRotatef(-90.0, 0.0, 1.0, 0.0);
+	}
+	else if (rot == 2)
+	{
+		glRotatef(90.0, 0.0, 1.0, 0.0);
+	}
+	glTranslatef(-19.6, 20, 19.95);
+	for (int i = 0; i < 99; i++)
+	{
+		glPushMatrix();
+		glTranslatef(i * 0.4, 0, 0);
+		grill();
+		glPopMatrix();
+	}
+
+	glTranslatef(19.6, -20, -19.95);
+	if (rot == 1)
+	{
+		glRotatef(90.0, 0.0, 1.0, 0.0);
+	}
+	else if (rot == 2)
+	{
+		glRotatef(-90.0, 0.0, 1.0, 0.0);
+	}
+}
+
+void sign(int s)
+{
+
+	glColor3f(1.0f, 1.0f, 1.0f); // Set the color to white
+	glBegin(GL_QUADS);
+	glVertex3f(-17.75f, 29.0f, -20.0f); // Top-left vertex
+	glVertex3f(-15.25f, 29.0f, -20.0f); // Top-right vertex
+	glVertex3f(-15.25f, 26.0f, -20.0f); // Bottom-right vertex
+	glVertex3f(-17.75f, 26.0f, -20.0f); // Bottom-left vertex
+	glEnd();
+	glColor3f(0.0f, 1.0f, 0.0f); // Set the color to white
+
+	// Draw the rectangle
+	glBegin(GL_QUADS);
+	glVertex3f(-17.5f, 28.5f, -19.90f); // Top-left vertex
+	glVertex3f(-15.5f, 28.5f, -19.90f); // Top-right vertex
+	glVertex3f(-15.5f, 26.5f, -19.90f); // Bottom-right vertex
+	glVertex3f(-17.5f, 26.5f, -19.90f); // Bottom-left vertex
+	glEnd();
+
+	glColor3f(0.0f, 0.0f, 0.0f); // Set the color to black
+
+	// Draw the "EXIT" text
+	glRasterPos3f(-17.5f, 27.5f, -19.90f); // Set the position of the text
+	if (s == 0)
+		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"EXIT");
+	else
+		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"ENTRY");
+}
+void drawSign(double p, double q, double r, int s)
+{
+	glPushMatrix();
+	glTranslatef(p, q, r);
+	glScalef(1.0f, 0.5f, 1.0);
+	if (s == 0)
+	{
+		glRotatef(-90.0, 0.0, 1.0, 0.0);
+	}
+	else
+	{
+		glRotatef(-180.0, 0.0, 1.0, 0.0);
+		glTranslatef(34.9, -4, 0.1);
+	}
+	sign(s);
+	glPopMatrix();
+}
+
 int main(int argc, char **argv)
 {
 
@@ -388,7 +486,7 @@ int main(int argc, char **argv)
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	glutCreateWindow("Classroom");
+	glutCreateWindow("Theatre");
 
 	// register callbacks
 	glutDisplayFunc(renderScene);
