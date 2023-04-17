@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(3D-Movie-Theatre-OpenGL)
 
-add_executable(theatre theatre.cpp "src/chair.cpp" "src/stair.cpp" "src/chairarm.cpp" "src/fan.cpp" "src/window.cpp" )
+add_executable(theatre theatre.cpp "src/chair.cpp" "src/stair.cpp" "src/chairarm.cpp")
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)

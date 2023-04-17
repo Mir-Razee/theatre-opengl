@@ -6,7 +6,6 @@
 #include <GL/freeglut_ext.h>
 #include "src/chair.h"
 #include "src/chairarm.h"
-#include "src/fan.h"
 #include "src/stair.h"
 
 #define WINDOW_WIDTH 1000
@@ -44,7 +43,7 @@ void renderScene(void)
 	gluLookAt(x, y, z, x + lx, y + ly, z + lz, roll + 0.0f, 2.5f, 0.0f);
 
 	// Draw floor
-	glColor3f(0.7f, 0.7f, 0.7f);
+	glColor3f(0.1f, 0.2f, 1.6f);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 0.0f, -20.0f);
 	glVertex3f(-20.0f, 0.0f, 20.0f);
@@ -172,15 +171,15 @@ void renderScene(void)
 	glVertex3f(20.0f, 00.0f, -20.0f);
 	glEnd();
 
-	//exit door
-	glColor3f(1.0f, 0.0f, 0.0f);
+	// exit door
+	glColor3f(0.58f, 0.29f, 0.0f);
 	glBegin(GL_QUADS);
 	glVertex3f(20.0f, 0.0f, -12.0f);
 	glVertex3f(20.0f, 4.0f, -12.0f);
 	glVertex3f(20.0f, 4.0f, -18.0f);
 	glVertex3f(20.0f, 0.0f, -18.0f);
 	glEnd();
-	
+
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glLineWidth(30.0f);
 	glBegin(GL_LINES);
@@ -203,21 +202,20 @@ void renderScene(void)
 	glVertex3f(20.0f, 4.0f, -12.0f);
 	glEnd();
 
-	//handle left
+	// handle left
 	glBegin(GL_LINES);
 	glVertex3f(20.0f, 1.9f, -15.5f);
 	glVertex3f(20.0f, 2.1f, -15.5f);
 	glEnd();
 
-	//handle right
+	// handle right
 	glBegin(GL_LINES);
 	glVertex3f(20.0f, 1.9f, -14.5f);
 	glVertex3f(20.0f, 2.1f, -14.5f);
 	glEnd();
 
-
 	// ceiling
-	glColor3f(0.95f, 0.95f, 0.95f);
+	glColor3f(0.1f, 0.1f, 0.1f);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 40.0f, -20.0f);
 	glVertex3f(+20.0f, 40.0f, -20.0f);
@@ -227,7 +225,7 @@ void renderScene(void)
 
 	// stair wall support left
 
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(0.1f, 0.1f, 0.7f);
 	glBegin(GL_POLYGON);
 	glVertex3f(-14.0f, 00.0f, -08.0f);
 	glVertex3f(-14.0f, 02.0f, -08.0f);
@@ -237,7 +235,6 @@ void renderScene(void)
 	glVertex3f(-14.0f, 00.0f, -08.0f);
 	glEnd();
 
-	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex3f(-13.4f, 00.0f, -08.0f);
 	glVertex3f(-13.4f, 02.0f, -08.0f);
@@ -247,7 +244,6 @@ void renderScene(void)
 	glVertex3f(-13.4f, 00.0f, -08.0f);
 	glEnd();
 
-	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex3f(-13.4f, 02.0f, -08.0f);
 	glVertex3f(-13.4f, 00.0f, -08.0f);
@@ -261,7 +257,6 @@ void renderScene(void)
 
 	// stair wall support right
 
-	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex3f(+13.2f, 00.0f, -08.0f);
 	glVertex3f(+13.2f, 02.0f, -08.0f);
@@ -271,7 +266,6 @@ void renderScene(void)
 	glVertex3f(+13.2f, 00.0f, -08.0f);
 	glEnd();
 
-	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex3f(+12.6f, 00.0f, -08.0f);
 	glVertex3f(+12.6f, 02.0f, -08.0f);
@@ -281,7 +275,6 @@ void renderScene(void)
 	glVertex3f(+12.6f, 00.0f, -08.0f);
 	glEnd();
 
-	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex3f(+12.6f, 02.0f, -08.0f);
 	glVertex3f(+12.6f, 00.0f, -08.0f);
@@ -328,7 +321,7 @@ void renderScene(void)
 	glVertex3f(-10.0f, 12.0f, 20.0f);
 	glEnd();
 
-	//cieling
+	// cieling
 	glColor3f(0.0f, 1.0f, 0.0f);
 	glBegin(GL_QUADS);
 	glVertex3f(-16.0f, 18.0f, 20.0f);
@@ -375,6 +368,7 @@ void renderScene(void)
 			glTranslatef(i * 0.6, j * 1.0 + 4.8f, j * 2.0 + 2.2f);
 			glScalef(0.25f, 0.25f, 0.25f);
 			glRotatef(180.0, 0.0, 1.0, 0.0);
+			glTranslatef(0, 2.0f, 0);
 			chair[i][j].drawChair();
 			glTranslatef(2.45f, 0.0f, 0.0f);
 			chairArm[i][j].drawChairArm();
@@ -383,8 +377,12 @@ void renderScene(void)
 				glTranslatef(-4.9f, 0.0f, 0.0f);
 				chairArm[i][j].drawChairArm();
 			}
-			glTranslatef(0.0f, -1.0f, 6.0f);
+			glTranslatef(0.0f, -3.0f, 6.0f);
 			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
+			if (j == -4)
+			{
+				glScalef(1.0f, 0.5f, 1.0f);
+			}
 			stair[j].drawStair();
 			glPopMatrix();
 		}
@@ -431,22 +429,22 @@ void renderScene(void)
 	glEnd();
 
 	// Floor pattern
-	glColor3f(0.149f, 0.149f, 0.149f);
-	glLineWidth(3.0f);
-	for (int i = 0; i < 20; i += 2)
-	{
-		glBegin(GL_LINES);
-		glVertex3f(-10.0f + i, 0.001f, -10.01f);
-		glVertex3f(-10.0f + i, 0.001f, 10.01f);
-		glEnd();
-	}
-	for (int i = 0; i < 20; i += 2)
-	{
-		glBegin(GL_LINES);
-		glVertex3f(-10.0f, 0.001f, -10.01f + i);
-		glVertex3f(10.0f, 0.001f, -10.01f + i);
-		glEnd();
-	}
+	// glColor3f(0.149f, 0.149f, 0.149f);
+	// glLineWidth(3.0f);
+	// for (int i = 0; i < 20; i += 2)
+	// {
+	// 	glBegin(GL_LINES);
+	// 	glVertex3f(-10.0f + i, 0.001f, -10.01f);
+	// 	glVertex3f(-10.0f + i, 0.001f, 10.01f);
+	// 	glEnd();
+	// }
+	// for (int i = 0; i < 20; i += 2)
+	// {
+	// 	glBegin(GL_LINES);
+	// 	glVertex3f(-10.0f, 0.001f, -10.01f + i);
+	// 	glVertex3f(10.0f, 0.001f, -10.01f + i);
+	// 	glEnd();
+	// }
 	drawSign(0, -6, 0.1, 0);
 	drawSign(0, -6, 0.1, 1);
 	drawGrills(0);
@@ -637,10 +635,12 @@ void drawGrills(int rot)
 	if (rot == 1)
 	{
 		glRotatef(-90.0, 0.0, 1.0, 0.0);
+		glTranslatef(0, 0, -0.05);
 	}
 	else if (rot == 2)
 	{
 		glRotatef(90.0, 0.0, 1.0, 0.0);
+		glTranslatef(0, 0, -0.05);
 	}
 	glTranslatef(-19.6, 20, 19.95);
 	for (int i = 0; i < 99; i++)
@@ -655,10 +655,12 @@ void drawGrills(int rot)
 	if (rot == 1)
 	{
 		glRotatef(90.0, 0.0, 1.0, 0.0);
+		glTranslatef(0, 0, 0.05);
 	}
 	else if (rot == 2)
 	{
 		glRotatef(-90.0, 0.0, 1.0, 0.0);
+		glTranslatef(0, 0, 0.05);
 	}
 }
 
@@ -699,11 +701,12 @@ void drawSign(double p, double q, double r, int s)
 	if (s == 0)
 	{
 		glRotatef(-90.0, 0.0, 1.0, 0.0);
+		glTranslatef(0, 0, 0.2);
 	}
 	else
 	{
 		glRotatef(-180.0, 0.0, 1.0, 0.0);
-		glTranslatef(34.9, -4, 0.1);
+		glTranslatef(34.9, -4, 0.2);
 	}
 	sign(s);
 	glPopMatrix();
