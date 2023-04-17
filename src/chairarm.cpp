@@ -2,7 +2,7 @@
 
 void ChairArm ::drawChairArm()
 {
-    glColor3f(0.2f, 0.0f, 1.0f);
+    glColor3f(0.9f, 0.0f, 0.1f);
     glBegin(GL_QUADS);
     // chair arm
     // Front
