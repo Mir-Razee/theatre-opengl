@@ -26,10 +26,9 @@ float halfWidth = (float)(WINDOW_WIDTH / 2.0);
 float halfHeight = (float)(WINDOW_HEIGHT / 2.0);
 float mouseX = 0.0f, mouseY = 0.0f;
 
-// // Fan
-// Fan f;
 void drawSign(double p, double q, double r, int s);
 void drawGrills(int rot);
+
 void renderScene(void)
 {
 
@@ -43,7 +42,7 @@ void renderScene(void)
 	gluLookAt(x, y, z, x + lx, y + ly, z + lz, roll + 0.0f, 2.5f, 0.0f);
 
 	// Draw floor
-	glColor3f(0.1f, 0.2f, 1.6f);
+	glColor3f(0.33f, 0.33f, 0.33f);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 0.0f, -20.0f);
 	glVertex3f(-20.0f, 0.0f, 20.0f);
@@ -53,8 +52,7 @@ void renderScene(void)
 
 	// wall
 
-	glColor3f(0.5f, 0.5f, 0.5f);
-	// glColor3f(0.9294f, 0.9216f, 0.8353f);
+	glColor3f(0.15f, 0.15f, 0.15f);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 0.0f, -20.0f);
 	glVertex3f(-20.0f, 40.0f, -20.0f);
@@ -63,7 +61,7 @@ void renderScene(void)
 	glEnd();
 
 	// wall
-	glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.329, 0.106, 0.043);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 0.0f, -20.0f);
 	glVertex3f(-20.0f, 40.0f, -20.0f);
@@ -113,7 +111,7 @@ void renderScene(void)
 
 	// wall with exit
 
-	glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.329, 0.106, 0.043);
 	glBegin(GL_QUADS);
 	glVertex3f(20.0f, 00.0f, -12.0f);
 	glVertex3f(20.0f, 40.0f, -12.0f);
@@ -194,7 +192,7 @@ void renderScene(void)
 
 	// stair wall support left
 
-	glColor3f(0.1f, 0.1f, 0.7f);
+	glColor3f(0.3f, 0.03f, 0.03f);
 	glBegin(GL_POLYGON);
 	glVertex3f(-14.0f, 00.0f, -08.0f);
 	glVertex3f(-14.0f, 02.0f, -08.0f);
@@ -255,7 +253,7 @@ void renderScene(void)
 	glVertex3f(+12.6f, 15.0f, +17.0f);
 	glEnd();
 
-	// // DRAW projector room
+	// DRAW projector room
 	// door
 	glColor3f(0.58f, 0.29f, 0.0f);
 
@@ -369,7 +367,7 @@ void renderScene(void)
 			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
 			if (j == -4)
 			{
-				glScalef(1.0f, 0.5f, 1.0f);
+				glScalef(1.0f, 0.75f, 1.0f);
 			}
 			stair[j].drawStair();
 			glPopMatrix();
@@ -433,8 +431,9 @@ void renderScene(void)
 	// 	glVertex3f(10.0f, 0.001f, -10.01f + i);
 	// 	glEnd();
 	// }
-	drawSign(0, -6, 0.1, 0);
-	drawSign(0, -6, 0.1, 1);
+	drawSign(0, -6, 1.5, 0);
+	drawSign(2, -6, 0.1, 1);
+	drawSign(7, 7, 0.1, 2);
 	drawGrills(0);
 	drawGrills(1);
 	drawGrills(2);
@@ -678,8 +677,10 @@ void sign(int s)
 	glRasterPos3f(-17.5f, 27.5f, -19.90f); // Set the position of the text
 	if (s == 0)
 		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"EXIT");
-	else
+	else if (s == 1)
 		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"ENTRY");
+	else
+		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"Projector");
 }
 void drawSign(double p, double q, double r, int s)
 {
@@ -689,7 +690,7 @@ void drawSign(double p, double q, double r, int s)
 	if (s == 0)
 	{
 		glRotatef(-90.0, 0.0, 1.0, 0.0);
-		glTranslatef(0, 0, 0.2);
+		glTranslatef(0, -4, 0.2);
 	}
 	else
 	{
