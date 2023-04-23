@@ -16,7 +16,7 @@ using namespace std;
 // angle of rotation for the camera direction
 float angle = 0.0, yAngle = 0.0;
 // actual vector representing the camera's direction
-float lx = 0.0f, ly = 10.0f, lz = -1.0f;
+float lx = 0.0f, ly = 0.0f, lz = -1.0f;
 // XZ position of the camera
 float x = -15.0f, z = 50.0f, y = 5.0f;
 float roll = 0.0f;
@@ -28,10 +28,11 @@ float halfWidth = (float)(WINDOW_WIDTH / 2.0);
 float halfHeight = (float)(WINDOW_HEIGHT / 2.0);
 float mouseX = 0.0f, mouseY = 0.0f;
 
+// // Fan
+// Fan f;
 void drawSign(double p, double q, double r, int s);
 void drawGrills(int rot);
-// 
-void lightBulb1()
+// void lightBulb1()
 // {
 // 	GLfloat no_mat[] = {0.0, 0.0, 0.0, 1.0};
 // 	GLfloat mat_ambient[] = {0.7, 0.7, 0.7, 1.0};
@@ -345,9 +346,7 @@ void backWall(void)
 
 void leftWall(void)
 {
-	// wall
-	// glColor3f(0.329, 0.106, 0.043);
-	// // left wall
+	// left wall
 	glColor3f(0.66f, 0.49f, 0.44f);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 00.0f, -20.0f);
@@ -382,7 +381,6 @@ void frontWall(void)
 {
 	// wall with entrance
 	glColor3f(0.66f, 0.49f, 0.44f);
-	// glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-15.0f, 00.0f, 20.0f);
 	glVertex3f(-15.0f, 30.0f, 20.0f);
@@ -427,10 +425,10 @@ void frontWall(void)
 	{
 		glColor3f(0.66f, 0.56f, 0.49f);
 		glBegin(GL_QUADS);
-		glVertex3f(-20.0f+i, 05.0f, +20.0f-0.001f);
-		glVertex3f(-20.0f+i, 30.0f, +20.0f-0.001f);
-		glVertex3f(-20.0f+i+0.5f, 30.0f, +20.0f-0.001f);
-		glVertex3f(-20.0f+i+0.5f, 05.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f + i, 05.0f, +20.0f - 0.001f);
+		glVertex3f(-20.0f + i, 30.0f, +20.0f - 0.001f);
+		glVertex3f(-20.0f + i + 0.5f, 30.0f, +20.0f - 0.001f);
+		glVertex3f(-20.0f + i + 0.5f, 05.0f, +20.0f - 0.001f);
 		glEnd();
 	}
 	for (int i = 1; i < 41; i += 1)
@@ -522,132 +520,71 @@ void rightWall(void)
 	// right wall stripes
 	for (int i = 0; i < 40; i += 1)
 	{
-		glColor3f(0.95f, 0.87f, 0.73f);
+		glColor3f(0.66f, 0.56f, 0.49f);
 		glBegin(GL_QUADS);
-		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i);
-		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i);
-		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i+0.5);
-		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i+0.5);
+		glVertex3f(+20.0f - 0.001f, 05.0f, -20.0f + i);
+		glVertex3f(+20.0f - 0.001f, 30.0f, -20.0f + i);
+		glVertex3f(+20.0f - 0.001f, 30.0f, -20.0f + i + 0.5);
+		glVertex3f(+20.0f - 0.001f, 05.0f, -20.0f + i + 0.5);
 		glEnd();
 	}
 	for (int i = 1; i < 41; i += 1)
 	{
-		glColor3f(0.66f, 0.56f, 0.49f);
+		glColor3f(0.95f, 0.87f, 0.73f);
 		glBegin(GL_QUADS);
-		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i-0.5);
-		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i-0.5);
-		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i);
-		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i);
+		glVertex3f(+20.0f - 0.001f, 05.0f, -20.0f + i - 0.5);
+		glVertex3f(+20.0f - 0.001f, 30.0f, -20.0f + i - 0.5);
+		glVertex3f(+20.0f - 0.001f, 30.0f, -20.0f + i);
+		glVertex3f(+20.0f - 0.001f, 05.0f, -20.0f + i);
 		glEnd();
 	}
 }
 
-	// stair wall support left
-
-	glColor3f(0.1f, 0.1f, 0.7f);
-	glBegin(GL_POLYGON);
-	glVertex3f(-14.0f, 00.0f, -08.0f);
-	glVertex3f(-14.0f, 02.0f, -08.0f);
-	glVertex3f(-14.0f, 15.0f, +17.0f);
-	glVertex3f(-14.0f, 15.0f, +20.0f);
-	glVertex3f(-14.0f, 00.0f, +20.0f);
-	glVertex3f(-14.0f, 00.0f, -08.0f);
-	glEnd();
-
-	glBegin(GL_POLYGON);
-	glVertex3f(-13.4f, 00.0f, -08.0f);
-	glVertex3f(-13.4f, 02.0f, -08.0f);
-	glVertex3f(-13.4f, 15.0f, +17.0f);
-	glVertex3f(-13.4f, 15.0f, +20.0f);
-	glVertex3f(-13.4f, 00.0f, +20.0f);
-	glVertex3f(-13.4f, 00.0f, -08.0f);
-	glEnd();
-
-	glBegin(GL_POLYGON);
-	glVertex3f(-13.4f, 02.0f, -08.0f);
-	glVertex3f(-13.4f, 00.0f, -08.0f);
-	glVertex3f(-14.0f, 00.0f, -08.0f);
-	glVertex3f(-14.0f, 02.0f, -08.0f);
-	glVertex3f(-14.0f, 15.0f, +17.0f);
-	glVertex3f(-14.0f, 15.0f, +20.0f);
-	glVertex3f(-13.4f, 15.0f, +20.0f);
-	glVertex3f(-13.4f, 15.0f, +17.0f);
-	glEnd();
-
-	// stair wall support right
-
-	glBegin(GL_POLYGON);
-	glVertex3f(+13.2f, 00.0f, -08.0f);
-	glVertex3f(+13.2f, 02.0f, -08.0f);
-	glVertex3f(+13.2f, 15.0f, +17.0f);
-	glVertex3f(+13.2f, 15.0f, +20.0f);
-	glVertex3f(+13.2f, 00.0f, +20.0f);
-	glVertex3f(+13.2f, 00.0f, -08.0f);
-	glEnd();
-
-	glBegin(GL_POLYGON);
-	glVertex3f(+12.6f, 00.0f, -08.0f);
-	glVertex3f(+12.6f, 02.0f, -08.0f);
-	glVertex3f(+12.6f, 15.0f, +17.0f);
-	glVertex3f(+12.6f, 15.0f, +20.0f);
-	glVertex3f(+12.6f, 00.0f, +20.0f);
-	glVertex3f(+12.6f, 00.0f, -08.0f);
-	glEnd();
-
-	glBegin(GL_POLYGON);
-	glVertex3f(+12.6f, 02.0f, -08.0f);
-	glVertex3f(+12.6f, 00.0f, -08.0f);
-	glVertex3f(+13.2f, 00.0f, -08.0f);
-	glVertex3f(+13.2f, 02.0f, -08.0f);
-	glVertex3f(+13.2f, 15.0f, +17.0f);
-	glVertex3f(+13.2f, 15.0f, +20.0f);
-	glVertex3f(+12.6f, 15.0f, +20.0f);
-	glVertex3f(+12.6f, 15.0f, +17.0f);
-	glEnd();
-
+void projectorRoom(void)
+{
 	// // DRAW projector room
 	// door
 	glColor3f(0.58f, 0.29f, 0.0f);
 
 	glBegin(GL_QUADS);
-	glVertex3f(-13.0f, 12.0f, 19.9f);
-	glVertex3f(-13.0f, 18.0f, 19.9f);
-	glVertex3f(-10.0f, 18.0f, 19.9f);
-	glVertex3f(-10.0f, 12.0f, 19.9f);
+	glVertex3f(-13.0f, 12.0f, 19.99f);
+	glVertex3f(-13.0f, 18.0f, 19.99f);
+	glVertex3f(-10.0f, 18.0f, 19.99f);
+	glVertex3f(-10.0f, 12.0f, 19.99f);
 	glEnd();
 
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glLineWidth(30.0f);
 	glBegin(GL_LINES);
-	glVertex3f(-13.0f, 18.0f, 19.9f);
-	glVertex3f(-10.0f, 18.0f, 19.9f);
+	glVertex3f(-13.0f, 18.0f, 19.99f);
+	glVertex3f(-10.0f, 18.0f, 19.99f);
 	glEnd();
 
 	glBegin(GL_LINES);
-	glVertex3f(-13.0f, 18.0f, 19.9f);
-	glVertex3f(-13.0f, 12.0f, 19.9f);
+	glVertex3f(-13.0f, 18.0f, 19.99f);
+	glVertex3f(-13.0f, 12.0f, 19.99f);
 	glEnd();
 
 	glBegin(GL_LINES);
-	glVertex3f(-10.0f, 12.0f, 19.9f);
-	glVertex3f(-10.0f, 18.0f, 19.9f);
+	glVertex3f(-10.0f, 12.0f, 19.99f);
+	glVertex3f(-10.0f, 18.0f, 19.99f);
 	glEnd();
 
 	glColor3f(0, 0, 0);
 	// handle left
 	glBegin(GL_QUADS);
-	glVertex3f(-11.2f, 15.9f, 19.8f);
-	glVertex3f(-11.3f, 15.9f, 19.8f);
-	glVertex3f(-11.3f, 16.1f, 19.8f);
-	glVertex3f(-11.2f, 16.1f, 19.8f);
+	glVertex3f(-11.2f, 15.9f, 19.9f);
+	glVertex3f(-11.3f, 15.9f, 19.9f);
+	glVertex3f(-11.3f, 16.1f, 19.9f);
+	glVertex3f(-11.2f, 16.1f, 19.9f);
 	glEnd();
 
 	// handle right
 	glBegin(GL_QUADS);
-	glVertex3f(-12.2f, 15.9f, 19.8f);
-	glVertex3f(-12.1f, 15.9f, 19.8f);
-	glVertex3f(-12.1f, 16.1f, 19.8f);
-	glVertex3f(-12.2f, 16.1f, 19.8f);
+	glVertex3f(-12.2f, 15.9f, 19.9f);
+	glVertex3f(-12.1f, 15.9f, 19.9f);
+	glVertex3f(-12.1f, 16.1f, 19.9f);
+	glVertex3f(-12.2f, 16.1f, 19.9f);
 	glEnd();
 
 	// Draw floor
@@ -694,39 +631,99 @@ void rightWall(void)
 	glVertex3f(-10.0f, 18.0f, 26.0f);
 	glVertex3f(-10.0f, 12.0f, 26.0f);
 	glEnd();
-	// Draw chairs and arms
-	Chair chair[4][4];
-	ChairArm chairArm[4][4];
-	Stair stair[4];
-	for (int i = -13; i <= 13; i += 2)
+}
+
+void leftStairSupport(void)
+{
+	// stair wall support left
+
+	glColor3f(0.3f, 0.03f, 0.03f);
+	glBegin(GL_POLYGON);
+	glVertex3f(-14.0f, 00.0f, -08.0f);
+	glVertex3f(-14.0f, 02.0f, -08.0f);
+	glVertex3f(-14.0f, 15.0f, +17.0f);
+	glVertex3f(-14.0f, 15.0f, +20.0f);
+	glVertex3f(-14.0f, 00.0f, +20.0f);
+	glVertex3f(-14.0f, 00.0f, -08.0f);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glVertex3f(-13.4f, 00.0f, -08.0f);
+	glVertex3f(-13.4f, 02.0f, -08.0f);
+	glVertex3f(-13.4f, 15.0f, +17.0f);
+	glVertex3f(-13.4f, 15.0f, +20.0f);
+	glVertex3f(-13.4f, 00.0f, +20.0f);
+	glVertex3f(-13.4f, 00.0f, -08.0f);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glVertex3f(-13.4f, 02.0f, -08.0f);
+	glVertex3f(-13.4f, 00.0f, -08.0f);
+	glVertex3f(-14.0f, 00.0f, -08.0f);
+	glVertex3f(-14.0f, 02.0f, -08.0f);
+	glVertex3f(-14.0f, 15.0f, +17.0f);
+	glVertex3f(-14.0f, 15.0f, +20.0f);
+	glVertex3f(-13.4f, 15.0f, +20.0f);
+	glVertex3f(-13.4f, 15.0f, +17.0f);
+	glEnd();
+}
+
+void rightStairSupport(void)
+{
+	// stair wall support right
+	glColor3f(0.3f, 0.03f, 0.03f);
+	glBegin(GL_POLYGON);
+	glVertex3f(+13.2f, 00.0f, -08.0f);
+	glVertex3f(+13.2f, 02.0f, -08.0f);
+	glVertex3f(+13.2f, 15.0f, +17.0f);
+	glVertex3f(+13.2f, 15.0f, +20.0f);
+	glVertex3f(+13.2f, 00.0f, +20.0f);
+	glVertex3f(+13.2f, 00.0f, -08.0f);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glVertex3f(+12.6f, 00.0f, -08.0f);
+	glVertex3f(+12.6f, 02.0f, -08.0f);
+	glVertex3f(+12.6f, 15.0f, +17.0f);
+	glVertex3f(+12.6f, 15.0f, +20.0f);
+	glVertex3f(+12.6f, 00.0f, +20.0f);
+	glVertex3f(+12.6f, 00.0f, -08.0f);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glVertex3f(+12.6f, 02.0f, -08.0f);
+	glVertex3f(+12.6f, 00.0f, -08.0f);
+	glVertex3f(+13.2f, 00.0f, -08.0f);
+	glVertex3f(+13.2f, 02.0f, -08.0f);
+	glVertex3f(+13.2f, 15.0f, +17.0f);
+	glVertex3f(+13.2f, 15.0f, +20.0f);
+	glVertex3f(+12.6f, 15.0f, +20.0f);
+	glVertex3f(+12.6f, 15.0f, +17.0f);
+	glEnd();
+}
+
+void floorPattern(void)
+{
+	// Floor pattern
+	glColor3f(0.149f, 0.149f, 0.149f);
+	glLineWidth(3.0f);
+	for (int i = 0; i < 40; i += 2)
 	{
-		for (int j = -4; j <= 8; j += 1)
-		{
-			glPushMatrix();
-			glTranslatef(i * 0.6, j * 1.0 + 4.8f, j * 2.0 + 2.2f);
-			glScalef(0.25f, 0.25f, 0.25f);
-			glRotatef(180.0, 0.0, 1.0, 0.0);
-			glTranslatef(0, 2.0f, 0);
-			chair[i][j].drawChair();
-			glTranslatef(2.45f, 0.0f, 0.0f);
-			chairArm[i][j].drawChairArm();
-			if (i == -3 || i == 13)
-			{
-				glTranslatef(-4.9f, 0.0f, 0.0f);
-				chairArm[i][j].drawChairArm();
-			}
-			glTranslatef(0.0f, -2.0f, 6.0f);
-			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
-			if (j == -4)
-			{
-				glScalef(1.0f, 0.5f, 1.0f);
-			}
-			stair[j].drawStair();
-			glPopMatrix();
-		}
-		if (i == -3)
-			i = 1;
+		glBegin(GL_LINES);
+		glVertex3f(-20.0f + i, 0.001f, -20.01f);
+		glVertex3f(-20.0f + i, 0.001f, +20.01f);
+		glEnd();
 	}
+	for (int i = 0; i < 40; i += 2)
+	{
+		glBegin(GL_LINES);
+		glVertex3f(-20.0f, 0.001f, -20.01f + i);
+		glVertex3f(+20.0f, 0.001f, -20.01f + i);
+		glEnd();
+	}
+
+	
+}
 
 void screen(void)
 {
@@ -762,26 +759,106 @@ void screen(void)
 	glEnd();
 }
 
-	// Floor pattern
-	glColor3f(0.149f, 0.149f, 0.149f);
-	glLineWidth(3.0f);
-	for (int i = 0; i < 40; i += 2)
+void drawChairs(void)
+{
+	// Draw chairs and arms
+	Chair chair[4][4];
+	ChairArm chairArm[4][4];
+	Stair stair[4];
+	for (int i = -13; i <= 13; i += 2)
 	{
-		glBegin(GL_LINES);
-		glVertex3f(-20.0f + i, 0.001f, -20.01f);
-		glVertex3f(-20.0f + i, 0.001f, +20.01f);
-		glEnd();
+		for (int j = -4; j <= 8; j += 1)
+		{
+			glPushMatrix();
+			glTranslatef(i * 0.6, j * 1.0 + 4.8f, j * 2.0 + 2.2f);
+			glScalef(0.25f, 0.25f, 0.25f);
+			glRotatef(180.0, 0.0, 1.0, 0.0);
+			glTranslatef(0, 2.0f, 0);
+			chair[i][j].drawChair();
+			glTranslatef(2.45f, 0.0f, 0.0f);
+			chairArm[i][j].drawChairArm();
+			if (i == -3 || i == 13)
+			{
+				glTranslatef(-4.9f, 0.0f, 0.0f);
+				chairArm[i][j].drawChairArm();
+			}
+			glTranslatef(0.0f, -2.0f, 6.0f);
+			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
+			if (j == -4)
+			{
+				glScalef(1.0f, 0.75f, 1.0f);
+			}
+			stair[j].drawStair();
+			glPopMatrix();
+		}
+		if (i == -3)
+			i = 1;
 	}
-	for (int i = 0; i < 40; i += 2)
-	{
-		glBegin(GL_LINES);
-		glVertex3f(-20.0f, 0.001f, -20.01f + i);
-		glVertex3f(+20.0f, 0.001f, -20.01f + i);
-		glEnd();
-	}
+}
+void renderScene(void)
+{
 
-	drawSign(0, -6, 0.1, 0);
-	drawSign(0, -6, 0.1, 1);
+	// Clear Color and Depth Buffers
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// Reset transformations
+	glLoadIdentity();
+
+	// Set the camera
+	gluLookAt(x, y, z, x + lx, y + ly, z + lz, roll + 0.0f, 2.5f, 0.0f);
+	
+	// glEnable(GL_LIGHTING);
+    // lightOne();
+    // lightTwo();
+    // lampLight();
+    // lamp();
+    // lightBulb1();
+    // lightBulb2();
+    // //lightBulb3();
+	// glDisable(GL_LIGHTING);
+    
+	// Draw the down wall
+	downWall();
+	
+	// Draw the top wall
+	topWall();
+	
+	// Draw the back wall
+	backWall();
+	
+	// Draw the left wall
+	leftWall();
+	
+	// Draw the front wall
+	frontWall();
+	
+	// Draw the right wall
+	rightWall();
+	
+	// Draw the left stair support wall
+	leftStairSupport();
+	
+	// Draw the right stair support wall
+	rightStairSupport();
+	
+	// Draw thee projector room
+	projectorRoom();
+	
+	// Draw the screen
+	screen();
+	
+	// Draw the chairs and stairs
+	drawChairs();
+	
+	// Draw the floor pattern
+	floorPattern();
+
+	drawSign(0, -6, 1.5, 0);
+	drawSign(2, -6, 0.1, 1);
+	drawSign(7, 7, 0, 2);
+
+	// AC grills
 	drawGrills(0);
 	drawGrills(1);
 	drawGrills(2);
@@ -1041,8 +1118,8 @@ void sign(int s)
 		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"EXIT");
 	else if (s == 1)
 		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"ENTRY");
-	else
-		glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"Projector");
+	else 
+	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char *)"PROJECTOR");
 }
 void drawSign(double p, double q, double r, int s)
 {
@@ -1052,9 +1129,9 @@ void drawSign(double p, double q, double r, int s)
 	if (s == 0)
 	{
 		glRotatef(-90.0, 0.0, 1.0, 0.0);
-		glTranslatef(0, -4, 0.2);
+		glTranslatef(0, 0, 0.2);
 	}
-	else
+	else 
 	{
 		glRotatef(-180.0, 0.0, 1.0, 0.0);
 		glTranslatef(34.9, -4, 0.2);
