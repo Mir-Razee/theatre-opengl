@@ -52,7 +52,9 @@ void renderScene(void)
 	glEnd();
 
 	// wall
-	glColor3f(0.9294f, 0.9216f, 0.8353f);
+
+	glColor3f(0.5f, 0.5f, 0.5f);
+	// glColor3f(0.9294f, 0.9216f, 0.8353f);
 	glBegin(GL_QUADS);
 	glVertex3f(-20.0f, 0.0f, -20.0f);
 	glVertex3f(-20.0f, 40.0f, -20.0f);
@@ -70,15 +72,6 @@ void renderScene(void)
 	glEnd();
 
 	// wall with entrance
-	//  glColor3f(1.0f, 0.851f, 0.702f);
-	//  glBegin(GL_QUADS);
-	//  glVertex3f(-10.0f, 0.0f, 20.0f);
-	//  glVertex3f(-10.0f, 7.0f, 20.0f);
-	//  glVertex3f(-6.0f, 7.0f, 20.0f);
-	//  glVertex3f(-6.0f, 0.0f, 20.0f);
-	//  glEnd();
-
-	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-15.0f, 0.0f, 20.0f);
 	glVertex3f(-15.0f, 40.0f, 20.0f);
@@ -86,7 +79,6 @@ void renderScene(void)
 	glVertex3f(20.0f, 0.0f, 20.0f);
 	glEnd();
 
-	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-18.0f, 40.0f, 20.0f);
 	glVertex3f(-18.0f, 4.0f, 20.0f);
@@ -101,6 +93,7 @@ void renderScene(void)
 	glVertex3f(-20.0f, 0.0f, 20.0f);
 	glEnd();
 
+	// door frame
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glLineWidth(30.0f);
 	glBegin(GL_LINES);
@@ -117,35 +110,6 @@ void renderScene(void)
 	glVertex3f(-15.0f, 0.0f, 20.01f);
 	glVertex3f(-15.0f, 4.0f, 20.01f);
 	glEnd();
-	
-// Draw floor
-	glColor3f(0.7f, 0.7f, 0.7f);
-	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 0.0f, -20.0f);
-	glVertex3f(-20.0f, 0.0f, 20.0f);
-	glVertex3f(20.0f, 0.0f, 20.0f);
-	glVertex3f(20.0f, 0.0f, -20.0f);
-	glEnd();
-
-	// wall
-	glColor3f(0.9294f, 0.9216f, 0.8353f);
-	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 0.0f, -20.0f);
-	glVertex3f(-20.0f, 40.0f, -20.0f);
-	glVertex3f(20.0f, 40.0f, -20.0f);
-	glVertex3f(20.0f, 0.0f, -20.0f);
-	glEnd();
-
-	// wall
-	glColor3f(1.0f, 0.851f, 0.702f);
-	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 00.0f, -20.0f);
-	glVertex3f(-20.0f, 40.0f, -20.0f);
-	glVertex3f(-20.0f, 40.0f, +20.0f);
-	glVertex3f(-20.0f, 00.0f, +20.0f);
-	glEnd();
-
-	
 
 	// wall with exit
 
@@ -203,15 +167,20 @@ void renderScene(void)
 	glEnd();
 
 	// handle left
-	glBegin(GL_LINES);
-	glVertex3f(20.0f, 1.9f, -15.5f);
-	glVertex3f(20.0f, 2.1f, -15.5f);
+	glColor3f(0, 0, 0);
+	glBegin(GL_QUADS);
+	glVertex3f(19.9f, 1.9f, -14.6f);
+	glVertex3f(19.9f, 1.9f, -14.5f);
+	glVertex3f(19.9f, 2.1f, -14.5f);
+	glVertex3f(19.9f, 2.1f, -14.6f);
 	glEnd();
 
 	// handle right
-	glBegin(GL_LINES);
-	glVertex3f(20.0f, 1.9f, -14.5f);
-	glVertex3f(20.0f, 2.1f, -14.5f);
+	glBegin(GL_QUADS);
+	glVertex3f(19.9f, 1.9f, -15.4f);
+	glVertex3f(19.9f, 1.9f, -15.5f);
+	glVertex3f(19.9f, 2.1f, -15.5f);
+	glVertex3f(19.9f, 2.1f, -15.4f);
 	glEnd();
 
 	// ceiling
@@ -287,31 +256,50 @@ void renderScene(void)
 	glEnd();
 
 	// // DRAW projector room
-	//entrance
-	glColor3f(0.0f, 1.0f, 0.0f);
+	// door
+	glColor3f(0.58f, 0.29f, 0.0f);
+
 	glBegin(GL_QUADS);
-	glVertex3f(-13.0f, 12.0f, 19.999f);
-	glVertex3f(-13.0f, 18.0f, 19.999f);
-	glVertex3f(-10.0f, 18.0f, 19.999f);
-	glVertex3f(-10.0f, 12.0f, 19.999f);
+	glVertex3f(-13.0f, 12.0f, 19.99f);
+	glVertex3f(-13.0f, 18.0f, 19.99f);
+	glVertex3f(-10.0f, 18.0f, 19.99f);
+	glVertex3f(-10.0f, 12.0f, 19.99f);
 	glEnd();
 
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glLineWidth(30.0f);
 	glBegin(GL_LINES);
-	glVertex3f(-13.0f, 18.0f, 19.999f);
-	glVertex3f(-10.0f, 18.0f, 19.999f);
+	glVertex3f(-13.0f, 18.0f, 19.99f);
+	glVertex3f(-10.0f, 18.0f, 19.99f);
 	glEnd();
 
 	glBegin(GL_LINES);
-	glVertex3f(-13.0f, 18.0f, 19.999f);
-	glVertex3f(-13.0f, 12.0f, 19.999f);
+	glVertex3f(-13.0f, 18.0f, 19.99f);
+	glVertex3f(-13.0f, 12.0f, 19.99f);
 	glEnd();
 
 	glBegin(GL_LINES);
-	glVertex3f(-10.0f, 12.0f, 19.999f);
-	glVertex3f(-10.0f, 18.0f, 19.999f);
+	glVertex3f(-10.0f, 12.0f, 19.99f);
+	glVertex3f(-10.0f, 18.0f, 19.99f);
 	glEnd();
+
+	glColor3f(0, 0, 0);
+	// handle left
+	glBegin(GL_QUADS);
+	glVertex3f(-11.2f, 15.9f, 19.9f);
+	glVertex3f(-11.3f, 15.9f, 19.9f);
+	glVertex3f(-11.3f, 16.1f, 19.9f);
+	glVertex3f(-11.2f, 16.1f, 19.9f);
+	glEnd();
+
+	// handle right
+	glBegin(GL_QUADS);
+	glVertex3f(-12.2f, 15.9f, 19.9f);
+	glVertex3f(-12.1f, 15.9f, 19.9f);
+	glVertex3f(-12.1f, 16.1f, 19.9f);
+	glVertex3f(-12.2f, 16.1f, 19.9f);
+	glEnd();
+
 	// Draw floor
 	glColor3f(0.0f, 1.0f, 0.0f);
 	glBegin(GL_QUADS);
@@ -377,7 +365,7 @@ void renderScene(void)
 				glTranslatef(-4.9f, 0.0f, 0.0f);
 				chairArm[i][j].drawChairArm();
 			}
-			glTranslatef(0.0f, -3.0f, 6.0f);
+			glTranslatef(0.0f, -2.0f, 6.0f);
 			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
 			if (j == -4)
 			{
