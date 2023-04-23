@@ -21,6 +21,8 @@ float lx = 0.0f, ly = 10.0f, lz = -1.0f;
 float x = -15.0f, z = 50.0f, y = 5.0f;
 float roll = 0.0f;
 
+// GLboolean redFlag = true, switchOne = false, switchTwo = false, switchLamp = false, amb1 = true, diff1 = true, spec1 = true, amb2 = true, diff2 = true, spec2 = true, amb3 = true, diff3 = true, spec3 = true;
+
 // for mouse movements
 float halfWidth = (float)(WINDOW_WIDTH / 2.0);
 float halfHeight = (float)(WINDOW_HEIGHT / 2.0);
@@ -28,19 +30,284 @@ float mouseX = 0.0f, mouseY = 0.0f;
 
 void drawSign(double p, double q, double r, int s);
 void drawGrills(int rot);
+// 
+void lightBulb1()
+// {
+// 	GLfloat no_mat[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat mat_ambient[] = {0.7, 0.7, 0.7, 1.0};
+// 	GLfloat mat_ambient_color[] = {0.8, 0.8, 0.2, 1.0};
+// 	GLfloat mat_diffuse[] = {1.000, 0.843, 0.000, 1.0};
+// 	GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat high_shininess[] = {100.0};
+// 	GLfloat mat_emission[] = {1.000, 1, 1, 0.0};
 
-void renderScene(void)
+// 	glPushMatrix();
+// 	glTranslatef(5, 5, 8);
+// 	glScalef(0.2, 0.2, 0.2);
+// 	glMaterialfv(GL_FRONT, GL_AMBIENT, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+// 	glMaterialfv(GL_FRONT, GL_SPECULAR, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+
+// 	if (switchOne == true)
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
+// 	}
+// 	else
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, no_mat);
+// 	}
+
+// 	glutSolidSphere(1.0, 16, 16);
+// 	glPopMatrix();
+// }
+
+// void lamp()
+// {
+// 	// lamp base
+// 	glPushMatrix();
+// 	glTranslatef(.6, 0.5, 8.95);
+// 	glScalef(0.07, 0.02, 0.07);
+// 	// drawCube1(0,0,1,  0,0,0.5);
+// 	glPopMatrix();
+
+// 	// lamp stand
+// 	glColor3f(1, 0, 0);
+// 	glPushMatrix();
+// 	glTranslatef(.7, 0.35, 9.05);
+// 	glScalef(0.01, 0.2, 0.01);
+// 	// drawCube1(1,0,0,  0.5,0.0,0.0);
+// 	glPopMatrix();
+
+// 	// lamp shade
+// 	glColor3f(0.000, 0.000, 0.545);
+// 	glPushMatrix();
+// 	glTranslatef(.6, 0.9, 8.9);
+// 	glScalef(0.08, 0.09, 0.08);
+// 	// drawTrapezoid(0.000, 0.000, 0.545,  0,0,0.2725);
+// 	// drawCube1(0.000, 0.000, 0.545,  0,0,0.2725);
+// 	glPopMatrix();
+// }
+
+// void lightBulb1()
+// {
+// 	GLfloat no_mat[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat mat_ambient[] = {0.7, 0.7, 0.7, 1.0};
+// 	GLfloat mat_ambient_color[] = {0.8, 0.8, 0.2, 1.0};
+// 	GLfloat mat_diffuse[] = {1.000, 0.843, 0.000, 1.0};
+// 	GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat high_shininess[] = {100.0};
+// 	GLfloat mat_emission[] = {1.000, 1, 1, 0.0};
+
+// 	glPushMatrix();
+// 	glTranslatef(5, 5, 8);
+// 	glScalef(0.2, 0.2, 0.2);
+// 	glMaterialfv(GL_FRONT, GL_AMBIENT, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+// 	glMaterialfv(GL_FRONT, GL_SPECULAR, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+
+// 	if (switchOne == true)
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
+// 	}
+// 	else
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, no_mat);
+// 	}
+
+// 	glutSolidSphere(1.0, 16, 16);
+// 	glPopMatrix();
+// }
+
+// void lightBulb2()
+// {
+// 	GLfloat no_mat[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat mat_ambient[] = {0.7, 0.7, 0.7, 1.0};
+// 	GLfloat mat_ambient_color[] = {0.8, 0.8, 0.2, 1.0};
+// 	GLfloat mat_diffuse[] = {1.000, 0.843, 0.000, 1.0};
+// 	GLfloat high_shininess[] = {100.0};
+// 	GLfloat mat_emission[] = {1, 1, 1, 1.0};
+
+// 	glPushMatrix();
+// 	glTranslatef(0, 5, 8);
+// 	glScalef(0.2, 0.2, 0.2);
+// 	glMaterialfv(GL_FRONT, GL_AMBIENT, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+// 	glMaterialfv(GL_FRONT, GL_SPECULAR, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+// 	if (switchTwo == true)
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
+// 	}
+// 	else
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, no_mat);
+// 	}
+// 	glutSolidSphere(1.0, 16, 16);
+// 	glPopMatrix();
+// }
+
+// void lightBulb3()
+// {
+// 	GLfloat no_mat[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat mat_ambient[] = {0.7, 0.7, 0.7, 1.0};
+// 	GLfloat mat_ambient_color[] = {0.8, 0.8, 0.2, 1.0};
+// 	GLfloat mat_diffuse[] = {1.000, 0.843, 0.000, 1.0};
+// 	GLfloat high_shininess[] = {100.0};
+// 	GLfloat mat_emission[] = {1, 1, 1, 1.0};
+
+// 	glPushMatrix();
+// 	glTranslatef(0.7, 1.5, 9.0);
+// 	glScalef(0.2, 0.2, 0.2);
+// 	glMaterialfv(GL_FRONT, GL_AMBIENT, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+// 	glMaterialfv(GL_FRONT, GL_SPECULAR, no_mat);
+// 	glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+// 	if (switchLamp == true)
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
+// 	}
+// 	else
+// 	{
+// 		glMaterialfv(GL_FRONT, GL_EMISSION, no_mat);
+// 	}
+// 	glutSolidSphere(1.0, 16, 16);
+// 	glPopMatrix();
+// }
+
+// void lightOne()
+// {
+// 	glPushMatrix();
+// 	GLfloat no_light[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat light_ambient[] = {0.5, 0.5, 0.5, 1.0};
+// 	GLfloat light_diffuse[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat light_specular[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat light_position[] = {-15.0, 5.0, 20.0, 1.0}; // 5 5 10
+
+// 	// glEnable( GL_LIGHT0);
+
+// 	if (amb1 == true)
+// 	{
+// 		glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT0, GL_AMBIENT, no_light);
+// 	}
+
+// 	if (diff1 == true)
+// 	{
+// 		glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT0, GL_DIFFUSE, no_light);
+// 	}
+
+// 	if (spec1 == true)
+// 	{
+// 		glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT0, GL_SPECULAR, no_light);
+// 	}
+
+// 	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+// 	glPopMatrix();
+// }
+
+// void lightTwo()
+// {
+// 	glPushMatrix();
+// 	GLfloat no_light[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat light_ambient[] = {0.5, 0.5, 0.5, 1.0};
+// 	GLfloat light_diffuse[] = {1.0, 1.0, 0.9, 1.0};
+// 	GLfloat light_specular[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat light_position[] = {0.0, 5.0, 8.0, 1.0};
+
+// 	// glEnable( GL_LIGHT1);
+
+// 	if (amb2 == true)
+// 	{
+// 		glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT1, GL_AMBIENT, no_light);
+// 	}
+
+// 	if (diff2 == true)
+// 	{
+// 		glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT1, GL_DIFFUSE, no_light);
+// 	}
+
+// 	if (spec2 == true)
+// 	{
+// 		glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT1, GL_SPECULAR, no_light);
+// 	}
+
+// 	glLightfv(GL_LIGHT1, GL_POSITION, light_position);
+// 	glPopMatrix();
+// }
+
+// void lampLight()
+// {
+// 	glPushMatrix();
+// 	GLfloat no_light[] = {0.0, 0.0, 0.0, 1.0};
+// 	GLfloat light_ambient[] = {0.5, 0.5, 0.5, 1.0};
+// 	GLfloat light_diffuse[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat light_specular[] = {1.0, 1.0, 1.0, 1.0};
+// 	GLfloat light_position[] = {0.7, 1.5, 9.0, 1.0}; // 0.7, 4.5, 9.0
+
+// 	// glEnable( GL_LIGHT2);
+
+// 	if (amb3 == true)
+// 	{
+// 		glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT2, GL_AMBIENT, no_light);
+// 	}
+
+// 	if (diff3 == true)
+// 	{
+// 		glLightfv(GL_LIGHT2, GL_DIFFUSE, light_diffuse);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT2, GL_DIFFUSE, no_light);
+// 	}
+
+// 	if (spec3 == true)
+// 	{
+// 		glLightfv(GL_LIGHT2, GL_SPECULAR, light_specular);
+// 	}
+// 	else
+// 	{
+// 		glLightfv(GL_LIGHT2, GL_SPECULAR, no_light);
+// 	}
+
+// 	glLightfv(GL_LIGHT2, GL_POSITION, light_position);
+// 	GLfloat spot_direction[] = {0.3, -1, -0.8};
+// 	glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction);
+// 	glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 35.0);
+// 	glPopMatrix();
+// }
+
+
+void downWall(void)
 {
-
-	// Clear Color and Depth Buffers
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// Reset transformations
-	glLoadIdentity();
-	// Set the camera
-	gluLookAt(x, y, z, x + lx, y + ly, z + lz, roll + 0.0f, 2.5f, 0.0f);
-
 	// Draw floor
 	glColor3f(0.33f, 0.33f, 0.33f);
 	glBegin(GL_QUADS);
@@ -49,7 +316,10 @@ void renderScene(void)
 	glVertex3f(+20.0f, 00.0f, +20.0f);
 	glVertex3f(+20.0f, 00.0f, -20.0f);
 	glEnd();
+}
 
+void topWall(void)
+{
 	// ceiling
 	glColor3f(0.1f, 0.1f, 0.1f);
 	glBegin(GL_QUADS);
@@ -58,8 +328,11 @@ void renderScene(void)
 	glVertex3f(+20.0f, 30.0f, +20.0f);
 	glVertex3f(-20.0f, 30.0f, +20.0f);
 	glEnd();
+}
 
-	// wall
+void backWall(void)
+{
+	// screen wall
 
 	glColor3f(0.15f, 0.15f, 0.15f);
 	glBegin(GL_QUADS);
@@ -68,7 +341,10 @@ void renderScene(void)
 	glVertex3f(+20.0f, 30.0f, -20.0f);
 	glVertex3f(+20.0f, 00.0f, -20.0f);
 	glEnd();
+}
 
+void leftWall(void)
+{
 	// wall
 	// glColor3f(0.329, 0.106, 0.043);
 	// // left wall
@@ -100,6 +376,10 @@ void renderScene(void)
 		glVertex3f(-20.0f + 0.001f, 05.0f, -20.0f + i);
 		glEnd();
 	}
+}
+
+void frontWall(void)
+{
 	// wall with entrance
 	glColor3f(0.66f, 0.49f, 0.44f);
 	// glColor3f(1.0f, 0.851f, 0.702f);
@@ -147,10 +427,10 @@ void renderScene(void)
 	{
 		glColor3f(0.66f, 0.56f, 0.49f);
 		glBegin(GL_QUADS);
-		glVertex3f(-20.0f + i, 05.0f, +20.0f - 0.01f);
-		glVertex3f(-20.0f + i, 30.0f, +20.0f - 0.01f);
-		glVertex3f(-20.0f + i + 0.5f, 30.0f, +20.0f - 0.01f);
-		glVertex3f(-20.0f + i + 0.5f, 05.0f, +20.0f - 0.01f);
+		glVertex3f(-20.0f+i, 05.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i, 30.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i+0.5f, 30.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i+0.5f, 05.0f, +20.0f-0.001f);
 		glEnd();
 	}
 	for (int i = 1; i < 41; i += 1)
@@ -163,7 +443,10 @@ void renderScene(void)
 		glVertex3f(-20.0f + i, 05.0f, +20.0f - 0.001f);
 		glEnd();
 	}
+}
 
+void rightWall(void)
+{
 	// wall with exit
 
 	glColor3f(0.66f, 0.49f, 0.44f);
@@ -241,26 +524,27 @@ void renderScene(void)
 	{
 		glColor3f(0.95f, 0.87f, 0.73f);
 		glBegin(GL_QUADS);
-		glVertex3f(+20.0f - 0.01f, 05.0f, -20.0f + i);
-		glVertex3f(+20.0f - 0.01f, 30.0f, -20.0f + i);
-		glVertex3f(+20.0f - 0.01f, 30.0f, -20.0f + i + 0.5);
-		glVertex3f(+20.0f - 0.01f, 05.0f, -20.0f + i + 0.5);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i+0.5);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i+0.5);
 		glEnd();
 	}
 	for (int i = 1; i < 41; i += 1)
 	{
 		glColor3f(0.66f, 0.56f, 0.49f);
 		glBegin(GL_QUADS);
-		glVertex3f(+20.0f - 0.01f, 05.0f, -20.0f + i - 0.5);
-		glVertex3f(+20.0f - 0.01f, 30.0f, -20.0f + i - 0.5);
-		glVertex3f(+20.0f - 0.01f, 30.0f, -20.0f + i);
-		glVertex3f(+20.0f - 0.01f, 05.0f, -20.0f + i);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i-0.5);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i-0.5);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i);
 		glEnd();
 	}
+}
 
 	// stair wall support left
 
-	glColor3f(0.3f, 0.03f, 0.03f);
+	glColor3f(0.1f, 0.1f, 0.7f);
 	glBegin(GL_POLYGON);
 	glVertex3f(-14.0f, 00.0f, -08.0f);
 	glVertex3f(-14.0f, 02.0f, -08.0f);
@@ -321,7 +605,7 @@ void renderScene(void)
 	glVertex3f(+12.6f, 15.0f, +17.0f);
 	glEnd();
 
-	// DRAW projector room
+	// // DRAW projector room
 	// door
 	glColor3f(0.58f, 0.29f, 0.0f);
 
@@ -435,7 +719,7 @@ void renderScene(void)
 			glScalef(1.0f, 4.0f, 77.0f - j * 8.0);
 			if (j == -4)
 			{
-				glScalef(1.0f, 0.75f, 1.0f);
+				glScalef(1.0f, 0.5f, 1.0f);
 			}
 			stair[j].drawStair();
 			glPopMatrix();
@@ -444,6 +728,8 @@ void renderScene(void)
 			i = 1;
 	}
 
+void screen(void)
+{
 	// Draw Screen
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_QUADS);
@@ -453,13 +739,6 @@ void renderScene(void)
 	glVertex3f(17.0f, 10.0f, -19.99f);
 	glEnd();
 
-	// glColor3f(0.149f, 0.149f, 0.149f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-5.8f, 2.2f, -9.98f);
-	// glVertex3f(-5.8f, 5.3f, -9.98f);
-	// glVertex3f(5.8f, 5.3f, -9.98f);
-	// glVertex3f(5.8f, 2.2f, -9.98f);
-	// glEnd();
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glLineWidth(10.0f);
 	glBegin(GL_LINES);
@@ -481,8 +760,9 @@ void renderScene(void)
 	glVertex3f(17.0f, 10.0f, -19.99f);
 	glVertex3f(-17.0f, 10.0f, -19.99f);
 	glEnd();
+}
 
-	// floor pattern
+	// Floor pattern
 	glColor3f(0.149f, 0.149f, 0.149f);
 	glLineWidth(3.0f);
 	for (int i = 0; i < 40; i += 2)
@@ -500,15 +780,16 @@ void renderScene(void)
 		glEnd();
 	}
 
-	drawSign(0, -6, 1.5, 0);
-	drawSign(2, -6, 0.1, 1);
-	drawSign(7, 7, 0.0, 2);
+	drawSign(0, -6, 0.1, 0);
+	drawSign(0, -6, 0.1, 1);
 	drawGrills(0);
 	drawGrills(1);
 	drawGrills(2);
+	
 	glutSwapBuffers();
-}
+	
 
+}
 // Handles the events triggered when one of the arrow keys are pressed.
 // @param key : key pressed
 // @param xx : x coordinate of mouse position
@@ -584,6 +865,21 @@ void processNormalKeys(unsigned char key, int xx, int yy)
 	{
 		y -= ly * fraction;
 	}
+	// else if (key == 'h')
+	// {
+	// 	if(switchOne == false)
+    //         {
+    //             switchOne = true; amb1=true; diff1=true; spec1=true;
+    //             glEnable( GL_LIGHT0); 
+	// 			// break;
+    //         }
+    //         else if(switchOne == true)
+    //         {
+    //             switchOne = false; amb1=false; diff1=false; spec1=false; glDisable( GL_LIGHT0); 
+	// 			// break;
+    //         }
+	// }
+
 
 	if (key == 27)
 		exit(0);
