@@ -3,8 +3,6 @@
 void Stair ::drawStair()
 {
 
-	// glColor3f(0.2f, 0.2f, 0.2f);
-
 	glColor3f(0.04f, 0.05f, 0.56f);
 	glBegin(GL_QUADS);
 	// stair seat
