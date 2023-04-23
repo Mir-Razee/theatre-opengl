@@ -45,10 +45,19 @@ void renderScene(void)
 	// Draw floor
 	glColor3f(0.1f, 0.2f, 1.6f);
 	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 0.0f, -20.0f);
-	glVertex3f(-20.0f, 0.0f, 20.0f);
-	glVertex3f(20.0f, 0.0f, 20.0f);
-	glVertex3f(20.0f, 0.0f, -20.0f);
+	glVertex3f(-20.0f, 00.0f, -20.0f);
+	glVertex3f(-20.0f, 00.0f, +20.0f);
+	glVertex3f(+20.0f, 00.0f, +20.0f);
+	glVertex3f(+20.0f, 00.0f, -20.0f);
+	glEnd();
+
+	// ceiling
+	glColor3f(0.1f, 0.1f, 0.1f);
+	glBegin(GL_QUADS);
+	glVertex3f(-20.0f, 30.0f, -20.0f);
+	glVertex3f(+20.0f, 30.0f, -20.0f);
+	glVertex3f(+20.0f, 30.0f, +20.0f);
+	glVertex3f(-20.0f, 30.0f, +20.0f);
 	glEnd();
 
 	// wall
@@ -56,41 +65,62 @@ void renderScene(void)
 	glColor3f(0.5f, 0.5f, 0.5f);
 	// glColor3f(0.9294f, 0.9216f, 0.8353f);
 	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 0.0f, -20.0f);
-	glVertex3f(-20.0f, 40.0f, -20.0f);
-	glVertex3f(20.0f, 40.0f, -20.0f);
-	glVertex3f(20.0f, 0.0f, -20.0f);
+	glVertex3f(-20.0f, 00.0f, -20.0f);
+	glVertex3f(-20.0f, 30.0f, -20.0f);
+	glVertex3f(+20.0f, 30.0f, -20.0f);
+	glVertex3f(+20.0f, 00.0f, -20.0f);
 	glEnd();
 
-	// wall
+	// left wall
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 0.0f, -20.0f);
-	glVertex3f(-20.0f, 40.0f, -20.0f);
-	glVertex3f(-20.0f, 40.0f, 20.0f);
-	glVertex3f(-20.0f, 0.0f, 20.0f);
+	glVertex3f(-20.0f, 00.0f, -20.0f);
+	glVertex3f(-20.0f, 30.0f, -20.0f);
+	glVertex3f(-20.0f, 30.0f, +20.0f);
+	glVertex3f(-20.0f, 00.0f, +20.0f);
 	glEnd();
-
+	// left wall stripes
+	for (int i = 0; i < 40; i+=1)
+	{
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glBegin(GL_QUADS);
+		glVertex3f(-20.0f+0.001f, 05.0f, -20.0f+i);
+		glVertex3f(-20.0f+0.001f, 30.0f, -20.0f+i);
+		glVertex3f(-20.0f+0.001f, 30.0f, -20.0f+i+0.5);
+		glVertex3f(-20.0f+0.001f, 05.0f, -20.0f+i+0.5);
+		glEnd();
+	}
+	for (int i = 1; i < 41; i+=1)
+	{
+		glColor3f(0.0f, 0.0f, 1.0f);
+		glBegin(GL_QUADS);
+		glVertex3f(-20.0f+0.001f, 05.0f, -20.0f+i-0.5);
+		glVertex3f(-20.0f+0.001f, 30.0f, -20.0f+i-0.5);
+		glVertex3f(-20.0f+0.001f, 30.0f, -20.0f+i);
+		glVertex3f(-20.0f+0.001f, 05.0f, -20.0f+i);
+		glEnd();
+	}
 	// wall with entrance
+	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-15.0f, 0.0f, 20.0f);
-	glVertex3f(-15.0f, 40.0f, 20.0f);
-	glVertex3f(20.0f, 40.0f, 20.0f);
-	glVertex3f(20.0f, 0.0f, 20.0f);
+	glVertex3f(-15.0f, 00.0f, 20.0f);
+	glVertex3f(-15.0f, 30.0f, 20.0f);
+	glVertex3f(+20.0f, 30.0f, 20.0f);
+	glVertex3f(+20.0f, 00.0f, 20.0f);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glVertex3f(-18.0f, 40.0f, 20.0f);
-	glVertex3f(-18.0f, 4.0f, 20.0f);
-	glVertex3f(-15.0f, 4.0f, 20.0f);
-	glVertex3f(-15.0f, 40.0f, 20.0f);
+	glVertex3f(-18.0f, 30.0f, 20.0f);
+	glVertex3f(-18.0f, 04.0f, 20.0f);
+	glVertex3f(-15.0f, 04.0f, 20.0f);
+	glVertex3f(-15.0f, 30.0f, 20.0f);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glVertex3f(-18.0f, 0.0f, 20.0f);
-	glVertex3f(-18.0f, 40.0f, 20.0f);
-	glVertex3f(-20.0f, 40.0f, 20.0f);
-	glVertex3f(-20.0f, 0.0f, 20.0f);
+	glVertex3f(-18.0f, 00.0f, 20.0f);
+	glVertex3f(-18.0f, 30.0f, 20.0f);
+	glVertex3f(-20.0f, 30.0f, 20.0f);
+	glVertex3f(-20.0f, 00.0f, 20.0f);
 	glEnd();
 
 	// door frame
@@ -111,27 +141,49 @@ void renderScene(void)
 	glVertex3f(-15.0f, 4.0f, 20.01f);
 	glEnd();
 
+	// entrance wall stripes
+	for (int i = 0; i < 40; i+=1)
+	{
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glBegin(GL_QUADS);
+		glVertex3f(-20.0f+i, 05.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i, 30.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i+0.5f, 30.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i+0.5f, 05.0f, +20.0f-0.001f);
+		glEnd();
+	}
+	for (int i = 1; i < 41; i+=1)
+	{
+		glColor3f(0.0f, 0.0f, 1.0f);
+		glBegin(GL_QUADS);
+		glVertex3f(-20.0f+i-0.5f, 05.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i-0.5f, 30.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i, 30.0f, +20.0f-0.001f);
+		glVertex3f(-20.0f+i, 05.0f, +20.0f-0.001f);
+		glEnd();
+	}
+
 	// wall with exit
 
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(20.0f, 00.0f, -12.0f);
-	glVertex3f(20.0f, 40.0f, -12.0f);
-	glVertex3f(20.0f, 40.0f, +20.0f);
+	glVertex3f(20.0f, 30.0f, -12.0f);
+	glVertex3f(20.0f, 30.0f, +20.0f);
 	glVertex3f(20.0f, 00.0f, +20.0f);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glVertex3f(20.0f, 04.0f, -12.0f);
-	glVertex3f(20.0f, 40.0f, -12.0f);
-	glVertex3f(20.0f, 40.0f, -18.0f);
+	glVertex3f(20.0f, 30.0f, -12.0f);
+	glVertex3f(20.0f, 30.0f, -18.0f);
 	glVertex3f(20.0f, 04.0f, -18.0f);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glVertex3f(20.0f, 00.0f, -18.0f);
-	glVertex3f(20.0f, 40.0f, -18.0f);
-	glVertex3f(20.0f, 40.0f, -20.0f);
+	glVertex3f(20.0f, 30.0f, -18.0f);
+	glVertex3f(20.0f, 30.0f, -20.0f);
 	glVertex3f(20.0f, 00.0f, -20.0f);
 	glEnd();
 
@@ -183,14 +235,27 @@ void renderScene(void)
 	glVertex3f(19.9f, 2.1f, -15.4f);
 	glEnd();
 
-	// ceiling
-	glColor3f(0.1f, 0.1f, 0.1f);
-	glBegin(GL_QUADS);
-	glVertex3f(-20.0f, 40.0f, -20.0f);
-	glVertex3f(+20.0f, 40.0f, -20.0f);
-	glVertex3f(+20.0f, 40.0f, +20.0f);
-	glVertex3f(-20.0f, 40.0f, +20.0f);
-	glEnd();
+	// right wall stripes
+	for (int i = 0; i < 40; i+=1)
+	{
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glBegin(GL_QUADS);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i+0.5);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i+0.5);
+		glEnd();
+	}
+	for (int i = 1; i < 41; i+=1)
+	{
+		glColor3f(0.0f, 0.0f, 1.0f);
+		glBegin(GL_QUADS);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i-0.5);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i-0.5);
+		glVertex3f(+20.0f-0.001f, 30.0f, -20.0f+i);
+		glVertex3f(+20.0f-0.001f, 05.0f, -20.0f+i);
+		glEnd();
+	}
 
 	// stair wall support left
 
@@ -417,22 +482,23 @@ void renderScene(void)
 	glEnd();
 
 	// Floor pattern
-	// glColor3f(0.149f, 0.149f, 0.149f);
-	// glLineWidth(3.0f);
-	// for (int i = 0; i < 20; i += 2)
-	// {
-	// 	glBegin(GL_LINES);
-	// 	glVertex3f(-10.0f + i, 0.001f, -10.01f);
-	// 	glVertex3f(-10.0f + i, 0.001f, 10.01f);
-	// 	glEnd();
-	// }
-	// for (int i = 0; i < 20; i += 2)
-	// {
-	// 	glBegin(GL_LINES);
-	// 	glVertex3f(-10.0f, 0.001f, -10.01f + i);
-	// 	glVertex3f(10.0f, 0.001f, -10.01f + i);
-	// 	glEnd();
-	// }
+	glColor3f(0.149f, 0.149f, 0.149f);
+	glLineWidth(3.0f);
+	for (int i = 0; i < 40; i += 2)
+	{
+		glBegin(GL_LINES);
+		glVertex3f(-20.0f + i, 0.001f, -20.01f);
+		glVertex3f(-20.0f + i, 0.001f, +20.01f);
+		glEnd();
+	}
+	for (int i = 0; i < 40; i += 2)
+	{
+		glBegin(GL_LINES);
+		glVertex3f(-20.0f, 0.001f, -20.01f + i);
+		glVertex3f(+20.0f, 0.001f, -20.01f + i);
+		glEnd();
+	}
+
 	drawSign(0, -6, 0.1, 0);
 	drawSign(0, -6, 0.1, 1);
 	drawGrills(0);
@@ -573,9 +639,6 @@ void changeSize(int w, int h)
 
 void animate()
 {
-
-	// f.rotateFan();
-
 	/* refresh screen */
 	glutPostRedisplay();
 }

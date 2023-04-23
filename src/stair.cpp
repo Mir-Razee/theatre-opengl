@@ -54,7 +54,7 @@ void Stair ::drawStair()
 	
 	//front strip
 	glColor3f(0.4f, 0.2f, 0.0f);
-	glLineWidth(30.0f);
+	glLineWidth(10.0f);
 	glBegin(GL_LINES);
 	glVertex3f(-17.0f, +0.0f, 0.0f);
 	glVertex3f(+20.0f, +0.0f, 0.0f);
